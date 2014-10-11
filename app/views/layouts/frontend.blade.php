@@ -11,38 +11,66 @@
 <script src="{{ asset('assets/client/js/default.js') }}"></script>
 </head>
 <body>
-<div class="navbar navbar-default navbar-hand" role="navigation">
+<div class="navbar navbar-static-top navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">On/Off Navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">Dummy</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Dummy</a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="">Home</a></li>
+                <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="#hot">Hot</a></li>
+                <li><a href="#latest">Latest</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#">Sign up</a></li>
-                <li><a href="#">Sign in</a></li>
+                @if (Auth::user())
+                    <li><a href="#">{{ ucfirst(Auth::user()->username) }}</a></li>
+                    <li><a href="{{ url('user/logout') }}">Logout</a></li>
+                @else
+                    <li><a href="{{ url('user/login') }}">Sign in</a></li>
+                    <li>
+                        <div class="navbar-form navbar-right">
+                            <a href="{{ url('user/create') }}" class="btn btn-success">Sign up</a>
+                        </div>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
 </div>
 <div class="container">
-    @yield('container')
-</div>
-<div class="footer">
-    <div class="container">
-        <hr>
-        <p>
-            <span class="pull-left">&copy; Dummy 2014</span>
+    <div class="row">
+        @if (Session::get('error'))
+            <div class="alert alert-error alert-danger">
+                <strong>Error!</strong>&nbsp;
+
+                @if (is_array(Session::get('error')))
+                    {{ head(Session::get('error')) }}
+                @else
+                    {{{ Session::get('error') }}}
+                @endif
+            </div>
+        @endif
+
+        @if (Session::get('notice'))
+            <div class="alert alert-success">
+                <strong>Notice!</strong>&nbsp;{{{ Session::get('notice') }}}
+            </div>
+        @endif
+
+        @yield('container')
+
+        <div class="col-md-12 footer">
+            <hr>
+            <span class="pull-left">&copy; 2014</span>
             <span class="pull-right">&nbsp;</span>
-        </p>
+        </div>
     </div>
 </div>
 </body>

@@ -46,8 +46,8 @@ return array(
     |
     |
     */
-    'login_form' =>             'confide::login',
-    'signup_form' =>            'confide::signup',
+    'login_form' =>             'users.signin',
+    'signup_form' =>            'users.signup',
     'forgot_password_form' =>   'confide::forgot_password',
     'reset_password_form' =>    'confide::reset_password',
 
@@ -105,8 +105,8 @@ return array(
     | table, otherwise they will not be able to login after the payment.
     |
     */
-    'signup_email'   => true,
-    'signup_confirm' => true,
+    'signup_email'   => false,
+    'signup_confirm' => false,
 
     /*
     |--------------------------------------------------------------------------

@@ -8,4 +8,8 @@ class User extends Eloquent implements ConfideUserInterface {
 
 	protected $table = 'user';
 
+	public function avatar($size = 20) {
+		return Gravatar::src($this->email, $size);
+	}
+
 }

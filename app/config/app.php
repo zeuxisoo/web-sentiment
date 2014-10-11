@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Zizaco\Confide\ServiceProvider',
+		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 	),
 
 	/*
@@ -192,6 +193,7 @@ return array(
 
 
 		'Confide'         => 'Zizaco\Confide\Facade',
+		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 	),
 
 );

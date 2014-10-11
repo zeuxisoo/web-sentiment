@@ -5,6 +5,7 @@
 <title>Dummy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+<link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/client/css/default.css') }}" rel="stylesheet" media="screen">
 <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -30,8 +31,13 @@
             </ul>
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())
-                    <li><a href="#">{{ ucfirst(Auth::user()->username) }}</a></li>
-                    <li><a href="{{ url('user/logout') }}">Logout</a></li>
+                    <li>
+                        <a href="#">
+                            <img src="{{ Auth::user()->avatar(20) }}">&nbsp;
+                            <strong>{{ ucfirst(Auth::user()->username) }}</strong>
+                        </a>
+                    </li>
+                    <li><a href="{{ url('user/logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
                     <li><a href="{{ url('user/login') }}">Sign in</a></li>
                     <li>

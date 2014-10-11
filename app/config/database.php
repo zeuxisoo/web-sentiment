@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -49,7 +49,7 @@ return array(
 		'sqlite' => array(
 			'driver'   => 'sqlite',
 			'database' => __DIR__.'/../database/production.sqlite',
-			'prefix'   => '',
+			'prefix'   => 'dy_',
 		),
 
 		'mysql' => array(
@@ -60,7 +60,7 @@ return array(
 			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
+			'prefix'    => 'dy_',
 		),
 
 		'pgsql' => array(

@@ -32,6 +32,12 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Sign in</button>
+                            &nbsp;<span class="text-muted">or</span>&nbsp;
+                            <small>
+                                <a href="{{ url('/user/forgot_password') }}">
+                                    Forgot password
+                                </a>
+                            </small>
                         </div>
                     </div>
                 </form>

@@ -48,8 +48,8 @@ return array(
     */
     'login_form' =>             'users.signin',
     'signup_form' =>            'users.signup',
-    'forgot_password_form' =>   'confide::forgot_password',
-    'reset_password_form' =>    'confide::reset_password',
+    'forgot_password_form' =>   'users.forgot_password',
+    'reset_password_form' =>    'users.reset_password',
 
     /*
     |--------------------------------------------------------------------------

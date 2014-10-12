@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
 
 @section('container')
-    Current environment: <strong>{{ $environment }}</strong>
+    {{ trans("controllers.home.welcome_message", ['username' => Auth::user() ? ucfirst(Auth::user()->username) : 'Guest']) }}
 @stop

@@ -16,7 +16,6 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -25,9 +24,9 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="#hot">Hot</a></li>
-                <li><a href="#latest">Latest</a></li>
+                <li class="active"><a href="{{ url('/') }}">{{ trans('views.frontend.home') }}</a></li>
+                <li><a href="#hot">{{ trans('views.frontend.hot') }}</a></li>
+                <li><a href="#latest">{{ trans('views.frontend.latest') }}</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())
@@ -39,10 +38,10 @@
                     </li>
                     <li><a href="{{ url('user/logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
-                    <li><a href="{{ url('user/login') }}">Sign in</a></li>
+                    <li><a href="{{ url('user/login') }}">{{ trans('views.frontend.signin') }}</a></li>
                     <li>
                         <div class="navbar-form navbar-right">
-                            <a href="{{ url('user/create') }}" class="btn btn-success">Sign up</a>
+                            <a href="{{ url('user/create') }}" class="btn btn-success">{{ trans('views.frontend.signup') }}</a>
                         </div>
                     </li>
                 @endif
@@ -54,7 +53,7 @@
     <div class="row">
         @if (Session::get('error'))
             <div class="alert alert-error alert-danger">
-                <strong>Error!</strong>&nbsp;
+                <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
 
                 @if (is_array(Session::get('error')))
                     {{ head(Session::get('error')) }}
@@ -66,7 +65,7 @@
 
         @if (Session::get('notice'))
             <div class="alert alert-success">
-                <strong>Notice!</strong>&nbsp;{{{ Session::get('notice') }}}
+                <strong>{{ trans('views.frontend.notice') }}</strong>&nbsp;{{{ Session::get('notice') }}}
             </div>
         @endif
 

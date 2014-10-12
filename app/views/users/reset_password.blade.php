@@ -9,7 +9,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="token" value="{{ $token }}">
                     <div class="form-group">
-                        <label for="password" class="col-sm-2 control-label">Password</label>
+                        <label for="password" class="col-sm-2 control-label">New Password</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>

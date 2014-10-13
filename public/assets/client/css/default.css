@@ -1,0 +1,18 @@
+.topic {
+    margin-bottom: 20px;
+}
+
+.topic .status {
+    border-top: 1px solid #CCC;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.thumb-random {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer {
+    margin-bottom: 20px;
+}

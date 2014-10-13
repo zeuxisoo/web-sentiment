@@ -2,7 +2,7 @@
 
 @section('container')
     <div id="topic-show">
-        <div class="col-md-12">
+        <div class="container">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="lead topic-subject">{{{ $topic->subject }}}</div>

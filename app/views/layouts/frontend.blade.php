@@ -53,38 +53,40 @@
 </div>
 <div class="container">
     <div class="row">
-        {{-- Application flash message --}}
-        @if (Session::get('errors'))
-            <div class="alert alert-error alert-danger">
-                <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
+        <div class="container">
+            {{-- Application flash message --}}
+            @if (Session::get('errors'))
+                <div class="alert alert-error alert-danger">
+                    <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
 
-                @if (is_array(Session::get('errors')))
-                    {{ head(Session::get('errors')) }}
-                @else
-                    {{ Session::get('errors')->first() }}
-                @endif
-            </div>
-        @endif
+                    @if (is_array(Session::get('errors')))
+                        {{ head(Session::get('errors')) }}
+                    @else
+                        {{ Session::get('errors')->first() }}
+                    @endif
+                </div>
+            @endif
 
-        {{-- Confide flash message --}}
-        @if (Session::get('error'))
-            <div class="alert alert-error alert-danger">
-                <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
+            {{-- Confide flash message --}}
+            @if (Session::get('error'))
+                <div class="alert alert-error alert-danger">
+                    <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
 
-                @if (is_array(Session::get('error')))
-                    {{ head(Session::get('error')) }}
-                @else
-                    {{{ Session::get('error') }}}
-                @endif
-            </div>
-        @endif
+                    @if (is_array(Session::get('error')))
+                        {{ head(Session::get('error')) }}
+                    @else
+                        {{{ Session::get('error') }}}
+                    @endif
+                </div>
+            @endif
 
-        {{-- Confide flash message but application also used --}}
-        @if (Session::get('notice'))
-            <div class="alert alert-success">
-                <strong>{{ trans('views.frontend.notice') }}</strong>&nbsp;{{{ Session::get('notice') }}}
-            </div>
-        @endif
+            {{-- Confide flash message but application also used --}}
+            @if (Session::get('notice'))
+                <div class="alert alert-success">
+                    <strong>{{ trans('views.frontend.notice') }}</strong>&nbsp;{{{ Session::get('notice') }}}
+                </div>
+            @endif
+        </div>
 
         @yield('container')
 

@@ -86,4 +86,28 @@ class TopicController extends BaseController {
 
 	}
 
+	public function comment($id) {
+		$topic = Topic::with('User')->findOrFail($id);
+
+		$validator = Validator::make(Input::all(), [
+			'content' => 'required',
+		]);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withErrors($validator)->withInput();
+		}else{
+			$input_data = array_merge(
+				Input::only(['content']),
+				[
+					'user_id'  => Auth::user()->id,
+					'topic_id' => $topic->id,
+				]
+			);
+
+			TopicComment::create($input_data);
+
+			return Redirect::back()->withNotice(trans('controllers.topic.comment.success'));
+		}
+	}
+
 }

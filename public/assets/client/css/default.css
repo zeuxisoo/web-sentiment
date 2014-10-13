@@ -34,3 +34,7 @@
 #topic-show .topic-description {
     padding-top: 15px;
 }
+
+#topic-show .alert-comment {
+    margin-bottom: 0px;
+}

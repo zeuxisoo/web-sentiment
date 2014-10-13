@@ -12,6 +12,10 @@ class Topic extends Eloquent {
         return $this->belongsTo('User');
     }
 
+    public function comments() {
+        return $this->hasMany('TopicComment');
+    }
+
     public function scopeLatest($query) {
         return $query->orderBy('created_at', 'desc');
     }

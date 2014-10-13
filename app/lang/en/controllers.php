@@ -7,6 +7,9 @@ return [
     'topic' => [
         'create' => [
             'success' => 'Topic created'
+        ],
+        'comment' => [
+            'success' => 'Comemnt saved'
         ]
     ]
 ];

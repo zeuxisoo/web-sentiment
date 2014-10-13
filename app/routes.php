@@ -17,3 +17,4 @@ Route::get('user/logout', 'UserController@logout');
 Route::get('topic/create', 'TopicController@create');
 Route::post('topic/store', 'TopicController@store');
 Route::get('topic/show/{id}', 'TopicController@show');
+Route::post('topic/comment/{id}', 'TopicController@comment');

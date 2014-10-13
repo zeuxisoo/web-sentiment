@@ -37,5 +37,17 @@ return [
         'answer_b_text'  => "Answer B (Text)",
         'answer_b_image' => "Answer B (Image)",
         'submit'         => "Submit",
+    ],
+    'home' => [
+        'latest_topics'  => "Latest topics",
+        'at'             => "at",
+        'vote_message'   => ":vote_count peoples voted",
+
+        'hot_topics'     => "Hot topics",
+
+        'create_topic'   => "Create your Topics",
+        'activiti_users' => "Activiti users",
+        'random_users'   => "Random users",
+        'advert'         => "Advert",
     ]
 ];

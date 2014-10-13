@@ -8,4 +8,20 @@ class Topic extends Eloquent {
         'answer_a_text', 'answer_b_text', 'answer_a_image', 'answer_b_image'
     ];
 
+    public function user() {
+        return $this->belongsTo('User');
+    }
+
+    public function scopeLatest($query) {
+        return $query->orderBy('created_at', 'desc');
+    }
+
+    public function scopeHot($query) {
+        return $query->orderBy('view_count', 'desc');
+    }
+
+    public function coverImage() {
+        return asset('/attachments/cover/'.$this->cover);
+    }
+
 }

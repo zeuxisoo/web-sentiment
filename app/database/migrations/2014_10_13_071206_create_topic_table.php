@@ -23,6 +23,8 @@ class CreateTopicTable extends Migration {
 			$table->string('answer_b_text', 180);
 			$table->string('answer_a_image', 64)->nullable();
 			$table->string('answer_b_image', 64)->nullable();
+			$table->mediumInteger('view_count')->unsigned()->default(0);
+			$table->mediumInteger('vote_count')->unsigned()->default(0);
 			$table->timestamps();
 		});
 	}

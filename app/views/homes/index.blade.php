@@ -4,92 +4,89 @@
     <div id="index">
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Hot topics</div>
+                <div class="panel-heading">{{ trans('views.home.latest_topics') }}</div>
                 <div class="panel-body">
-                    @for ($i=0; $i<5; $i++)
+                    @foreach($latest_topics as $topic)
                         <div class="topic">
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="http://placehold.it/64x64" alt="username">
+                                    <img class="media-object" src="{{ $topic->coverImage() }}" alt="{{{ $topic->subject }}}">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Topic name</h4>
+                                    <h4 class="media-heading">{{{ $topic->subject }}}</h4>
                                     <div class="description">
                                         <small class="text-muted">
-                                            Some description Some description Some description Some description Some description Some description Some description Some description Some description Some description
+                                            {{{ $topic->description }}}
                                         </small>
                                     </div>
                                     <div class="status">
-                                        <small class="text-muted">@username</small>
-                                        <small class="text">at</small>
-                                        <small class="text-muted">5 secords ago</small>
+                                        <small class="text-muted">@{{{ $topic->user->username }}}</small>
+                                        <small class="text">{{ trans('views.home.at') }}</small>
+                                        <small class="text-muted">{{{ $topic->created_at->diffForHumans() }}}</small>
                                         ,
-                                        <small class="text-muted">10 peoples voted</small>
+                                        <small class="text-muted">
+                                            {{ trans('views.home.vote_message', ['vote_count' => $topic->vote_count]) }}
+                                        </small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Latest topics</div>
+                <div class="panel-heading">{{ trans('views.home.hot_topics') }}</div>
                 <div class="panel-body">
-                    @for ($i=0; $i<5; $i++)
+                    @foreach($hot_topics as $topic)
                         <div class="topic">
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object" src="http://placehold.it/64x64" alt="username">
+                                    <img class="media-object" src="{{ $topic->coverImage() }}" alt="{{{ $topic->subject }}}">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Topic name</h4>
+                                    <h4 class="media-heading">{{{ $topic->subject }}}</h4>
                                     <div class="description">
                                         <small class="text-muted">
-                                            Some description Some description Some description Some description Some description Some description Some description Some description Some description Some description
+                                            {{{ $topic->description }}}
                                         </small>
                                     </div>
                                     <div class="status">
-                                        <small class="text-muted">@username</small>
-                                        <small class="text">at</small>
-                                        <small class="text-muted">5 secords ago</small>
+                                        <small class="text-muted">@{{{ $topic->user->username }}}</small>
+                                        <small class="text">{{ trans('views.home.at') }}</small>
+                                        <small class="text-muted">{{{ $topic->created_at->diffForHumans() }}}</small>
                                         ,
-                                        <small class="text-muted">10 peoples voted</small>
+                                        <small class="text-muted">
+                                            {{ trans('views.home.vote_message', ['vote_count' => $topic->vote_count]) }}
+                                        </small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <a href="{{ url('/topic/create') }}" class="btn btn-info btn-lg">Create your Topics</a>
+                    <a href="{{ url('/topic/create') }}" class="btn btn-info btn-lg">{{ trans('views.home.create_topic') }}</a>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">Activiti users</div>
-                <div class="panel-body list-group">
-                    <a href="#" class="list-group-item">1. @usernameA</a>
-                    <a href="#" class="list-group-item">2. @usernameB</a>
-                    <a href="#" class="list-group-item">3. @usernameC</a>
-                    <a href="#" class="list-group-item">4. @usernameD</a>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">Random users</div>
+                <div class="panel-heading">{{ trans('views.home.random_users') }}</div>
                 <div class="panel-body row">
-                    @for ($i=0; $i<6; $i++)
+                    @foreach($random_users as $user)
                         <div class="col-md-4">
-                            <a href="#" class="thumb-random"><img src="http://placehold.it/64x64" class="img-rounded"></a>
+                            <a href="#" class="thumb-random">
+                                <img src="{{ $user->avatar(64) }}" class="img-rounded" alt="{{{ $user->username }}}">
+                            </a>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">Advert</div>
+                <div class="panel-heading">{{ trans('views.home.advert') }}</div>
                 <div class="panel-body">
                     <img src="http://placehold.it/225x225">
                 </div>

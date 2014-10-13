@@ -35,7 +35,7 @@
                     <li>
                         <a href="#">
                             <img src="{{ Auth::user()->avatar(20) }}">&nbsp;
-                            <strong>{{ ucfirst(Auth::user()->username) }}</strong>
+                            <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>
                     </li>
                     <li><a href="{{ url('/user/logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>

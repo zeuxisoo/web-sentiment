@@ -53,6 +53,20 @@
 </div>
 <div class="container">
     <div class="row">
+        {{-- Application flash message --}}
+        @if (Session::get('errors'))
+            <div class="alert alert-error alert-danger">
+                <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
+
+                @if (is_array(Session::get('errors')))
+                    {{ head(Session::get('errors')) }}
+                @else
+                    {{ Session::get('errors')->first() }}
+                @endif
+            </div>
+        @endif
+
+        {{-- Confide flash message --}}
         @if (Session::get('error'))
             <div class="alert alert-error alert-danger">
                 <strong>{{ trans('views.frontend.error') }}</strong>&nbsp;
@@ -65,6 +79,7 @@
             </div>
         @endif
 
+        {{-- Confide flash message but application also used --}}
         @if (Session::get('notice'))
             <div class="alert alert-success">
                 <strong>{{ trans('views.frontend.notice') }}</strong>&nbsp;{{{ Session::get('notice') }}}

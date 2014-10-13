@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">{{ trans('views.topic.create') }}</div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" action="{{ url('/topic/store') }}" accept-charset="UTF-8">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/topic/store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <label for="subject" class="col-sm-2 control-label">{{ trans('views.topic.subject') }}</label>
@@ -44,9 +44,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="answer_a_image" class="col-sm-2 control-label">{{ trans('views.topic.answer_a_image') }}</label>
+                        <label for="answer_b_image" class="col-sm-2 control-label">{{ trans('views.topic.answer_b_image') }}</label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control file-input" id="answer_a_image" name="answer_a_image" placeholder="{{ trans('views.topic.answer_a_image') }}" value="{{ Input::old('answer_a_image') }}">
+                            <input type="file" class="form-control file-input" id="answer_b_image" name="answer_b_image" placeholder="{{ trans('views.topic.answer_b_image') }}" value="{{ Input::old('answer_b_image') }}">
                         </div>
                     </div>
                     <div class="form-group">

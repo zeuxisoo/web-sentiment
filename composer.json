@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"zizaco/confide": "~4.0",
-		"thomaswelton/laravel-gravatar": "~0.1"
+		"thomaswelton/laravel-gravatar": "~0.1",
+		"intervention/image": "~2.0"
 	},
 	"autoload": {
 		"classmap": [

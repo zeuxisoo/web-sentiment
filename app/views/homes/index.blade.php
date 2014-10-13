@@ -9,11 +9,13 @@
                     @foreach($latest_topics as $topic)
                         <div class="topic">
                             <div class="media">
-                                <a class="pull-left" href="#">
+                                <a class="pull-left" href="{{ url('/topic/show/'.$topic->id) }}">
                                     <img class="media-object" src="{{ $topic->coverImage() }}" alt="{{{ $topic->subject }}}">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">{{{ $topic->subject }}}</h4>
+                                    <h4 class="media-heading">
+                                        <a href="{{ url('/topic/show/'.$topic->id) }}">{{{ $topic->subject }}}</a>
+                                    </h4>
                                     <div class="description">
                                         <small class="text-muted">
                                             {{{ $topic->description }}}
@@ -41,11 +43,13 @@
                     @foreach($hot_topics as $topic)
                         <div class="topic">
                             <div class="media">
-                                <a class="pull-left" href="#">
+                                <a class="pull-left" href="{{ url('/topic/show/'.$topic->id) }}">
                                     <img class="media-object" src="{{ $topic->coverImage() }}" alt="{{{ $topic->subject }}}">
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">{{{ $topic->subject }}}</h4>
+                                    <h4 class="media-heading">
+                                        <a href="{{ url('/topic/show/'.$topic->id) }}">{{{ $topic->subject }}}</a>
+                                    </h4>
                                     <div class="description">
                                         <small class="text-muted">
                                             {{{ $topic->description }}}

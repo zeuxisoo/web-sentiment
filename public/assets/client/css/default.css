@@ -1,18 +1,36 @@
-.topic {
+/**/
+#index .topic {
     margin-bottom: 20px;
 }
 
-.topic .status {
+#index .topic .status {
     border-top: 1px solid #CCC;
     margin-top: 10px;
     padding-top: 5px;
 }
 
-.thumb-random {
+#index .thumb-random {
     display: block;
     margin-bottom: 10px;
 }
 
-.footer {
+#index .footer {
     margin-bottom: 20px;
+}
+
+/**/
+#topic-show .topic-subject {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #DDD;
+}
+
+#topic-show .topic-meta {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #AAA;
+}
+
+#topic-show .topic-description {
+    padding-top: 15px;
 }

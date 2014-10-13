@@ -2,7 +2,9 @@
 class TopicController extends BaseController {
 
 	public function __construct() {
-		$this->beforeFilter('auth');
+		$this->beforeFilter('auth', [
+			'except' => ['show']
+		]);
 	}
 
 	public function create() {
@@ -37,17 +39,17 @@ class TopicController extends BaseController {
 			if ($answer_a_image) {
 				$extension = $answer_a_image->getClientOriginalExtension() ?: 'png';
 				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
-				$filePath  = $attachment_path.'/answer_image_a/'.$fileName;
+				$filePath  = $attachment_path.'/answer_image/a/'.$fileName;
 
-				$answer_a_image = Image::make($answer_a_image)->resize(120, 120)->save($filePath, 100);
+				$answer_a_image = Image::make($answer_a_image)->resize(530, 530)->save($filePath, 100);
 			}
 
 			if ($answer_b_image) {
 				$extension = $answer_b_image->getClientOriginalExtension() ?: 'png';
 				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
-				$filePath  = $attachment_path.'/answer_image_b/'.$fileName;
+				$filePath  = $attachment_path.'/answer_image/b/'.$fileName;
 
-				$answer_b_image = Image::make($answer_b_image)->resize(120, 120)->save($filePath, 100);
+				$answer_b_image = Image::make($answer_b_image)->resize(530, 530)->save($filePath, 100);
 			}
 
 			$input_data = array_merge(
@@ -67,7 +69,9 @@ class TopicController extends BaseController {
 	}
 
 	public function show($id) {
+		$topic = Topic::with('User')->findOrFail($id);
 
+		return View::make('topics.show', compact('topic'));
 	}
 
 	public function edit($id) {

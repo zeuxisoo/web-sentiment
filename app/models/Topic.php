@@ -24,4 +24,12 @@ class Topic extends Eloquent {
         return asset('/attachments/cover/'.$this->cover);
     }
 
+    public function answerAImage() {
+        return asset('/attachments/answer_image/a/'.$this->answer_a_image);
+    }
+
+    public function answerBImage() {
+        return asset('/attachments/answer_image/b/'.$this->answer_b_image);
+    }
+
 }

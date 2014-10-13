@@ -26,5 +26,16 @@ return [
 
         'signup'           => "Sign up",
         'username'         => "Username",
+    ],
+    'topic' => [
+        'create'         => "Create topic",
+        'subject'        => "Subject",
+        'cover'          => "Cover",
+        'description'    => "Description",
+        'answer_a_text'  => "Answer A (Text)",
+        'answer_a_image' => "Answer A (Image)",
+        'answer_b_text'  => "Answer B (Text)",
+        'answer_b_image' => "Answer B (Image)",
+        'submit'         => "Submit",
     ]
 ];

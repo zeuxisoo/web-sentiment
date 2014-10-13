@@ -66,7 +66,7 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <a href="" class="btn btn-info btn-lg">Create your Topics</a>
+                    <a href="{{ url('/topic/create') }}" class="btn btn-info btn-lg">Create your Topics</a>
                 </div>
             </div>
             <div class="panel panel-default">

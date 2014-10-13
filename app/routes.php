@@ -12,3 +12,7 @@ Route::post('user/forgot_password', 'UserController@doForgotPassword');
 Route::get('user/reset_password/{token}', 'UserController@resetPassword');
 Route::post('user/reset_password', 'UserController@doResetPassword');
 Route::get('user/logout', 'UserController@logout');
+
+// Topic routes
+Route::get('topic/create', 'TopicController@create');
+Route::post('topic/store', 'TopicController@store');

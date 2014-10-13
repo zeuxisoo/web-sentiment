@@ -36,12 +36,12 @@
                             <strong>{{ ucfirst(Auth::user()->username) }}</strong>
                         </a>
                     </li>
-                    <li><a href="{{ url('user/logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
+                    <li><a href="{{ url('/user/logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
-                    <li><a href="{{ url('user/login') }}">{{ trans('views.frontend.signin') }}</a></li>
+                    <li><a href="{{ url('/user/login') }}">{{ trans('views.frontend.signin') }}</a></li>
                     <li>
                         <div class="navbar-form navbar-right">
-                            <a href="{{ url('user/create') }}" class="btn btn-success">{{ trans('views.frontend.signup') }}</a>
+                            <a href="{{ url('/user/create') }}" class="btn btn-success">{{ trans('views.frontend.signup') }}</a>
                         </div>
                     </li>
                 @endif

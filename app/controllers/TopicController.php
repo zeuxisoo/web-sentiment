@@ -15,10 +15,13 @@ class TopicController extends BaseController {
 
 	public function store() {
 		$validator = Validator::make(Input::all(), [
-			'subject'       => 'required',
-			'description'   => 'required',
-			'answer_a_text' => 'required',
-			'answer_b_text' => 'required',
+			'subject'        => 'required',
+			'description'    => 'required',
+			'answer_a_text'  => 'required',
+			'answer_b_text'  => 'required',
+			'cover'          => 'image',
+			'answer_a_image' => 'image',
+			'answer_b_image' => 'image',
 		]);
 
 		if ($validator->fails()) {
@@ -92,60 +95,74 @@ class TopicController extends BaseController {
 		if ($topic->user_id !== Auth::user()->id) {
 			return Redirect::to('topic/show/'.$topic->id)->withError(trans('controllers.topic.not_topic_owner'));
 		}else{
-			$attachment_path = $this->attachment_path;
+			$validator = Validator::make(Input::all(), [
+				'subject'        => 'required',
+				'description'    => 'required',
+				'answer_a_text'  => 'required',
+				'answer_b_text'  => 'required',
+				'cover'          => 'image',
+				'answer_a_image' => 'image',
+				'answer_b_image' => 'image',
+			]);
 
-			$cover          = Input::file('cover');
-			$answer_a_image = Input::file('answer_a_image');
-			$answer_b_image = Input::file('answer_b_image');
+			if ($validator->fails()) {
+				return Redirect::back()->withErrors($validator)->withInput();
+			}else{
+				$attachment_path = $this->attachment_path;
 
-			if ($cover) {
-				$extension = $cover->getClientOriginalExtension() ?: 'png';
-				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
-				$filePath  = $attachment_path.'/cover/'.$fileName;
+				$cover          = Input::file('cover');
+				$answer_a_image = Input::file('answer_a_image');
+				$answer_b_image = Input::file('answer_b_image');
 
-				$cover = Image::make($cover)->resize(64, 64)->save($filePath, 100);
+				if ($cover) {
+					$extension = $cover->getClientOriginalExtension() ?: 'png';
+					$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
+					$filePath  = $attachment_path.'/cover/'.$fileName;
 
-				if (File::exists($topic->coverImagePath()) === true) {
-					File::delete($topic->coverImagePath());
+					$cover = Image::make($cover)->resize(64, 64)->save($filePath, 100);
+
+					if (File::exists($topic->coverImagePath()) === true) {
+						File::delete($topic->coverImagePath());
+					}
 				}
-			}
 
-			if ($answer_a_image) {
-				$extension = $answer_a_image->getClientOriginalExtension() ?: 'png';
-				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
-				$filePath  = $attachment_path.'/answer_image/a/'.$fileName;
+				if ($answer_a_image) {
+					$extension = $answer_a_image->getClientOriginalExtension() ?: 'png';
+					$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
+					$filePath  = $attachment_path.'/answer_image/a/'.$fileName;
 
-				$answer_a_image = Image::make($answer_a_image)->resize(530, 530)->save($filePath, 100);
+					$answer_a_image = Image::make($answer_a_image)->resize(530, 530)->save($filePath, 100);
 
-				if (File::exists($topic->answerAImagePath()) === true) {
-					File::delete($topic->answerAImagePath());
+					if (File::exists($topic->answerAImagePath()) === true) {
+						File::delete($topic->answerAImagePath());
+					}
 				}
-			}
 
-			if ($answer_b_image) {
-				$extension = $answer_b_image->getClientOriginalExtension() ?: 'png';
-				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
-				$filePath  = $attachment_path.'/answer_image/b/'.$fileName;
+				if ($answer_b_image) {
+					$extension = $answer_b_image->getClientOriginalExtension() ?: 'png';
+					$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
+					$filePath  = $attachment_path.'/answer_image/b/'.$fileName;
 
-				$answer_b_image = Image::make($answer_b_image)->resize(530, 530)->save($filePath, 100);
+					$answer_b_image = Image::make($answer_b_image)->resize(530, 530)->save($filePath, 100);
 
-				if (File::exists($topic->answerBImagePath()) === true) {
-					File::delete($topic->answerBImagePath());
+					if (File::exists($topic->answerBImagePath()) === true) {
+						File::delete($topic->answerBImagePath());
+					}
 				}
+
+				$input_data = array_merge(
+					Input::only('subject', 'description', 'answer_a_text', 'answer_b_text'),
+					[
+						'cover'          => $cover ? $cover->basename : $topic->cover,
+						'answer_a_image' => $answer_a_image ? $answer_a_image->basename : $topic->answer_a_image,
+						'answer_b_image' => $answer_b_image ? $answer_b_image->basename : $topic->answer_b_image
+					]
+				);
+
+				$topic->update($input_data);
+
+				return Redirect::back()->withNotice(trans('controllers.topic.update_success'));
 			}
-
-			$input_data = array_merge(
-				Input::only('subject', 'description', 'answer_a_text', 'answer_b_text'),
-				[
-					'cover'          => $cover ? $cover->basename : $topic->cover,
-					'answer_a_image' => $answer_a_image ? $answer_a_image->basename : $topic->answer_a_image,
-					'answer_b_image' => $answer_b_image ? $answer_b_image->basename : $topic->answer_b_image
-				]
-			);
-
-			$topic->update($input_data);
-
-			return Redirect::back()->withNotice(trans('controllers.topic.update_success'));
 		}
 	}
 

@@ -1,11 +1,10 @@
 ;(function($) {
 
     $(function() {
-        $(".file-input").fileinput({
-            showUpload: false,
-            showPreview: false,
-            allowedFileTypes: ['image'],
-            allowedFileExtensions: ['jpg', 'gif', 'png', 'jpeg']
+        $(":file").filestyle({
+            icon: false,
+            buttonText: "Browse",
+            buttonName: "btn-primary"
         });
     });
 

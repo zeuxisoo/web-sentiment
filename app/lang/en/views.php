@@ -44,6 +44,12 @@ return [
 
         'no_comments'     => "No comments yet",
         'comments_header' => ":total comments",
+
+        'edit'            => "Edit",
+        'edit_topic'      => "Edit topic",
+
+        'update'          => "Update",
+        'no_images'       => "No images",
     ],
     'home' => [
         'latest_topics'  => "Latest topics",

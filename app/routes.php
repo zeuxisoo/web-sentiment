@@ -18,3 +18,5 @@ Route::get('topic/create', 'TopicController@create');
 Route::post('topic/store', 'TopicController@store');
 Route::get('topic/show/{id}', 'TopicController@show');
 Route::post('topic/comment/{id}', 'TopicController@comment');
+Route::get('topic/edit/{id}', 'TopicController@edit');
+Route::post('topic/update/{id}', 'TopicController@update');

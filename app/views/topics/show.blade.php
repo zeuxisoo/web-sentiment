@@ -7,8 +7,16 @@
                 <div class="panel-body">
                     <div class="lead topic-subject">{{{ $topic->subject }}}</div>
                     <div class="topic-meta">
-                        <i class="fa fa-user"></i> {{{ $topic->user->username }}}&nbsp;
-                        <i class="fa fa-clock-o"></i> {{{ $topic->created_at->diffForHumans() }}}
+                        <i class="fa fa-user"></i>&nbsp;
+                        {{{ $topic->user->username }}}&nbsp;
+
+                        <i class="fa fa-clock-o"></i>&nbsp;
+                        {{{ $topic->created_at->diffForHumans() }}}&nbsp;
+
+                        @if (Auth::user() && Auth::user()->id === $topic->user->id)
+                            <i class="fa fa-pencil-square-o"></i>&nbsp;
+                            <a href="{{ url('topic/edit/'.$topic->id) }}">{{ trans('views.topic.edit') }}</a>
+                        @endif
                     </div>
                     <div class="topic-description text-muted">
                         {{{ $topic->description }}}

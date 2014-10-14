@@ -36,4 +36,16 @@ class Topic extends Eloquent {
         return asset('/attachments/answer_image/b/'.$this->answer_b_image);
     }
 
+    public function coverImagePath() {
+        return public_path().'/attachments/cover/'.$this->cover;
+    }
+
+    public function answerAImagePath() {
+        return public_path().'/attachments/answer_image/a/'.$this->answer_a_image;
+    }
+
+    public function answerBImagePath() {
+        return public_path().'/attachments/answer_image/b/'.$this->answer_b_image;
+    }
+
 }

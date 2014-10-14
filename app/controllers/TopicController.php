@@ -5,6 +5,8 @@ class TopicController extends BaseController {
 		$this->beforeFilter('auth', [
 			'except' => ['show']
 		]);
+
+		$this->attachment_path = public_path().'/attachments';
 	}
 
 	public function create() {
@@ -22,7 +24,7 @@ class TopicController extends BaseController {
 		if ($validator->fails()) {
 			return Redirect::to('topic/create')->withErrors($validator)->withInput();
 		}else{
-			$attachment_path = public_path().'/attachments';
+			$attachment_path = $this->attachment_path;
 
 			$cover          = Input::file('cover');
 			$answer_a_image = Input::file('answer_a_image');
@@ -64,7 +66,7 @@ class TopicController extends BaseController {
 
 			Topic::create($input_data);
 
-			return Redirect::to('topic/create')->withNotice(trans('controllers.topic.create.success'));
+			return Redirect::to('topic/create')->withNotice(trans('controllers.topic.create_success'));
 		}
 	}
 
@@ -75,11 +77,76 @@ class TopicController extends BaseController {
 	}
 
 	public function edit($id) {
+		$topic = Topic::with('User')->findOrFail($id);
 
+		if ($topic->user_id !== Auth::user()->id) {
+			return Redirect::to('topic/show/'.$topic->id)->withError(trans('controllers.topic.not_topic_owner'));
+		}else{
+			return View::make('topics.edit', compact('topic'));
+		}
 	}
 
 	public function update($id) {
+		$topic = Topic::with('User')->findOrFail($id);
 
+		if ($topic->user_id !== Auth::user()->id) {
+			return Redirect::to('topic/show/'.$topic->id)->withError(trans('controllers.topic.not_topic_owner'));
+		}else{
+			$attachment_path = $this->attachment_path;
+
+			$cover          = Input::file('cover');
+			$answer_a_image = Input::file('answer_a_image');
+			$answer_b_image = Input::file('answer_b_image');
+
+			if ($cover) {
+				$extension = $cover->getClientOriginalExtension() ?: 'png';
+				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
+				$filePath  = $attachment_path.'/cover/'.$fileName;
+
+				$cover = Image::make($cover)->resize(64, 64)->save($filePath, 100);
+
+				if (File::exists($topic->coverImagePath()) === true) {
+					File::delete($topic->coverImagePath());
+				}
+			}
+
+			if ($answer_a_image) {
+				$extension = $answer_a_image->getClientOriginalExtension() ?: 'png';
+				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
+				$filePath  = $attachment_path.'/answer_image/a/'.$fileName;
+
+				$answer_a_image = Image::make($answer_a_image)->resize(530, 530)->save($filePath, 100);
+
+				if (File::exists($topic->answerAImagePath()) === true) {
+					File::delete($topic->answerAImagePath());
+				}
+			}
+
+			if ($answer_b_image) {
+				$extension = $answer_b_image->getClientOriginalExtension() ?: 'png';
+				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
+				$filePath  = $attachment_path.'/answer_image/b/'.$fileName;
+
+				$answer_b_image = Image::make($answer_b_image)->resize(530, 530)->save($filePath, 100);
+
+				if (File::exists($topic->answerBImagePath()) === true) {
+					File::delete($topic->answerBImagePath());
+				}
+			}
+
+			$input_data = array_merge(
+				Input::only('subject', 'description', 'answer_a_text', 'answer_b_text'),
+				[
+					'cover'          => $cover ? $cover->basename : $topic->cover,
+					'answer_a_image' => $answer_a_image ? $answer_a_image->basename : $topic->answer_a_image,
+					'answer_b_image' => $answer_b_image ? $answer_b_image->basename : $topic->answer_b_image
+				]
+			);
+
+			$topic->update($input_data);
+
+			return Redirect::back()->withNotice(trans('controllers.topic.update_success'));
+		}
 	}
 
 	public function destroy($id) {
@@ -106,7 +173,7 @@ class TopicController extends BaseController {
 
 			TopicComment::create($input_data);
 
-			return Redirect::back()->withNotice(trans('controllers.topic.comment.success'));
+			return Redirect::back()->withNotice(trans('controllers.topic.comment_success'));
 		}
 	}
 

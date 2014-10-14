@@ -5,11 +5,9 @@ return [
     ],
 
     'topic' => [
-        'create' => [
-            'success' => 'Topic created'
-        ],
-        'comment' => [
-            'success' => 'Comemnt saved'
-        ]
+        'create_success'  => 'Topic created',
+        'comment_success' => 'Comemnt saved',
+        'not_topic_owner' => 'You are not the topic owner',
+        'update_success'  => 'Topic updated',
     ]
 ];

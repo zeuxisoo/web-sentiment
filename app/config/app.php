@@ -125,6 +125,8 @@ return array(
 		'Zizaco\Confide\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
+
+		'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*
@@ -195,6 +197,8 @@ return array(
 		'Confide'         => 'Zizaco\Confide\Facade',
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		'Image'           => 'Intervention\Image\Facades\Image',
+
+		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 	),
 
 );

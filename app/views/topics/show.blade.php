@@ -24,11 +24,33 @@
                 </div>
             </div>
 
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <span class="btn btn-primary">{{ trans('views.topic.current_vote_stat') }}</span>
+                    <span class="btn btn-info">
+                        {{ trans('views.topic.voted') }} <span class="badge">{{{ $topic->vote_count }}}</span>
+                    </span>
+                    <span class="btn btn-success">
+                        {{ trans('views.topic.answer_a') }} <span class="badge">{{{ $vote_count->answer_a_count ?: 0 }}}</span>
+                    </span>
+                    <span class="btn btn-danger">
+                        {{ trans('views.topic.answer_b') }} <span class="badge">{{{ $vote_count->answer_b_count ?: 0 }}}</span>
+                    </span>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="" class="btn btn-info">{{{ $topic->answer_a_text }}}</a>
+                            <a href="{{ url('topic/vote/'.$topic->id.'/a') }}" class="btn btn-success">
+                                {{{ $topic->answer_a_text }}}
+                            </a>
+
+                            @if ($my_vote && strtoupper($my_vote->choice) == 'A')
+                                <span class="label label-default">{{ trans('views.topic.voted') }}</span>
+                            @endif
+
                             <hr>
                             <a href="#" class="thumbnail">
                                 <img src="{{{ $topic->answerAImage() }}}" class="img-rounded">
@@ -39,7 +61,14 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="" class="btn btn-info">{{{ $topic->answer_b_text }}}</a>
+                            <a href="{{ url('topic/vote/'.$topic->id.'/b') }}" class="btn btn-danger">
+                                {{{ $topic->answer_b_text }}}
+                            </a>
+
+                            @if ($my_vote && strtoupper($my_vote->choice) == 'B')
+                                <span class="label label-default">{{ trans('views.topic.voted') }}</span>
+                            @endif
+
                             <hr>
                             <a href="#" class="thumbnail">
                                 <img src="{{{ $topic->answerBImage() }}}" class="img-rounded">

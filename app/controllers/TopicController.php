@@ -74,9 +74,16 @@ class TopicController extends BaseController {
 	}
 
 	public function show($id) {
-		$topic = Topic::with('User')->findOrFail($id);
+		$topic      = Topic::with('User')->findOrFail($id);
+		$my_vote    = TopicVote::topicAndUser($topic, Auth::user())->first();
+		$vote_count = TopicVote::selectRaw("
+                SUM(choice='A') AS answer_a_count,
+                SUM(choice='B') AS answer_b_count
+            ")->topicAndUser($topic, Auth::user())->where(function($query) {
+                $query->where('choice', 'A')->orWhere('choice', 'B');
+            })->first(['answer_a_count', 'answer_b_count']);
 
-		return View::make('topics.show', compact('topic'));
+		return View::make('topics.show', compact('topic', 'my_vote', 'vote_count'));
 	}
 
 	public function edit($id) {
@@ -191,6 +198,32 @@ class TopicController extends BaseController {
 			TopicComment::create($input_data);
 
 			return Redirect::back()->withNotice(trans('controllers.topic.comment_success'));
+		}
+	}
+
+	public function vote($id, $choice) {
+		$topic = Topic::with('User')->findOrFail($id);
+
+		Validator::extend('only_vote_once', function($attribute, $value, $parameters) use ($topic) {
+			return TopicVote::topicAndUser($topic, Auth::user())->count() <= 0;
+		});
+
+		$validator = Validator::make(Route::getCurrentRoute()->parameters(), [
+			'choice' => 'in:a,b|only_vote_once',
+		], [
+			'only_vote_once' => trans('controllers.topic.only_vote_once')
+		]);
+
+		if ($validator->fails()) {
+			return Redirect::to('topic/show/'.$topic->id)->withErrors($validator)->withInput();
+		}else{
+			TopicVote::create([
+				'topic_id' => $topic->id,
+				'user_id'  => Auth::user()->id,
+				'choice'   => strtoupper($choice)
+			]);
+
+			return Redirect::to('topic/show/'.$topic->id)->withNotice(trans('controllers.topic.vote_success'));
 		}
 	}
 

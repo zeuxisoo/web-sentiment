@@ -20,3 +20,4 @@ Route::get('topic/show/{id}', 'TopicController@show');
 Route::post('topic/comment/{id}', 'TopicController@comment');
 Route::get('topic/edit/{id}', 'TopicController@edit');
 Route::post('topic/update/{id}', 'TopicController@update');
+Route::get('topic/vote/{id}/{choice}', 'TopicController@vote');

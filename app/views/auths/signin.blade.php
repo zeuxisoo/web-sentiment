@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('views.user.signin') }}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}" accept-charset="UTF-8">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('auth.login') }}" accept-charset="UTF-8">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="remember" value="0">
                         <div class="form-group">
@@ -36,7 +36,7 @@
                                 <button type="submit" class="btn btn-default">{{ trans('views.user.signin') }}</button>
                                 &nbsp;<span class="text-muted">{{ trans('views.user.or') }}</span>&nbsp;
                                 <small>
-                                    <a href="{{ url('/auth/forgot_password') }}">
+                                    <a href="{{ route('auth.forgot_password') }}">
                                         {{ trans('views.user.forgot_password') }}
                                     </a>
                                 </small>

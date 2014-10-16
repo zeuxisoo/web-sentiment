@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('views.topic.create') }}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/topic/store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('topic.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="subject" class="col-sm-2 control-label">{{ trans('views.topic.subject') }}</label>

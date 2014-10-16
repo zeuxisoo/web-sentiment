@@ -15,7 +15,7 @@
 
                         @if (Auth::user() && Auth::user()->id === $topic->user->id)
                             <i class="fa fa-pencil-square-o"></i>&nbsp;
-                            <a href="{{ url('topic/edit/'.$topic->id) }}">{{ trans('views.topic.edit') }}</a>
+                            <a href="{{ route('topic.edit', ['id' => $topic->id]) }}">{{ trans('views.topic.edit') }}</a>
                         @endif
                     </div>
                     <div class="topic-description text-muted">
@@ -43,7 +43,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="{{ url('topic/vote/'.$topic->id.'/a') }}" class="btn btn-success">
+                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'choice' => 'a']) }}" class="btn btn-success">
                                 {{{ $topic->answer_a_text }}}
                             </a>
 
@@ -61,7 +61,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="{{ url('topic/vote/'.$topic->id.'/b') }}" class="btn btn-danger">
+                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'choice' => 'b']) }}" class="btn btn-danger">
                                 {{{ $topic->answer_b_text }}}
                             </a>
 
@@ -119,7 +119,7 @@
 
             <div class="panel panel-default">
                 @if (Auth::user())
-                    <form class="form panel-body" action="{{ url('/topic/comment/'.$topic->id) }}" method="post">
+                    <form class="form panel-body" action="{{ route('topic.comment', ['id' => $topic->id]) }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <textarea class="form-control" rows="3" name="content" required="required">{{ Input::old('content') }}</textarea>
@@ -131,7 +131,7 @@
                 @else
                     <div class="panel-body">
                         <div class="alert alert-info">{{ trans('views.topic.login_required') }}</div>
-                        <a href="{{ url('/user/login') }}" class="btn btn-success">{{ trans('views.topic.signin') }}</a>
+                        <a href="{{ route('auth.login') }}" class="btn btn-success">{{ trans('views.topic.signin') }}</a>
                     </div>
                 @endif
             </div>

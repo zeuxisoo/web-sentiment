@@ -21,11 +21,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">Dummy</a>
+            <a class="navbar-brand" href="{{ route('home.index') }}">Dummy</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url('/') }}">{{ trans('views.frontend.home') }}</a></li>
+                <li class="active"><a href="{{ route('home.index') }}">{{ trans('views.frontend.home') }}</a></li>
                 <li><a href="#hot">{{ trans('views.frontend.hot') }}</a></li>
                 <li><a href="#latest">{{ trans('views.frontend.latest') }}</a></li>
             </ul>
@@ -37,12 +37,12 @@
                             <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>
                     </li>
-                    <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
+                    <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
-                    <li><a href="{{ url('/auth/login') }}">{{ trans('views.frontend.signin') }}</a></li>
+                    <li><a href="{{ route('auth.login') }}">{{ trans('views.frontend.signin') }}</a></li>
                     <li>
                         <div class="navbar-form navbar-right">
-                            <a href="{{ url('/auth/create') }}" class="btn btn-success">{{ trans('views.frontend.signup') }}</a>
+                            <a href="{{ route('auth.create') }}" class="btn btn-success">{{ trans('views.frontend.signup') }}</a>
                         </div>
                     </li>
                 @endif

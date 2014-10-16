@@ -25,7 +25,7 @@ class TopicController extends BaseController {
 		]);
 
 		if ($validator->fails()) {
-			return Redirect::to('topic/create')->withErrors($validator)->withInput();
+			return Redirect::route('topic.create')->withErrors($validator)->withInput();
 		}else{
 			$attachment_path = $this->attachment_path;
 
@@ -69,7 +69,7 @@ class TopicController extends BaseController {
 
 			Topic::create($input_data);
 
-			return Redirect::to('topic/create')->withNotice(trans('controllers.topic.create_success'));
+			return Redirect::route('topic.create')->withNotice(trans('controllers.topic.create_success'));
 		}
 	}
 
@@ -90,7 +90,7 @@ class TopicController extends BaseController {
 		$topic = Topic::with('User')->findOrFail($id);
 
 		if ($topic->user_id !== Auth::user()->id) {
-			return Redirect::to('topic/show/'.$topic->id)->withError(trans('controllers.topic.not_topic_owner'));
+			return Redirect::route('topic.show', ['id' => $topic->id])->withError(trans('controllers.topic.not_topic_owner'));
 		}else{
 			return View::make('topics.edit', compact('topic'));
 		}
@@ -100,7 +100,7 @@ class TopicController extends BaseController {
 		$topic = Topic::with('User')->findOrFail($id);
 
 		if ($topic->user_id !== Auth::user()->id) {
-			return Redirect::to('topic/show/'.$topic->id)->withError(trans('controllers.topic.not_topic_owner'));
+			return Redirect::route('topic.show', ['id' => $topic->id])->withError(trans('controllers.topic.not_topic_owner'));
 		}else{
 			$validator = Validator::make(Input::all(), [
 				'subject'        => 'required',
@@ -215,7 +215,7 @@ class TopicController extends BaseController {
 		]);
 
 		if ($validator->fails()) {
-			return Redirect::to('topic/show/'.$topic->id)->withErrors($validator)->withInput();
+			return Redirect::route('topic.show', ['id' => $topic->id])->withErrors($validator)->withInput();
 		}else{
 			TopicVote::create([
 				'topic_id' => $topic->id,
@@ -223,7 +223,7 @@ class TopicController extends BaseController {
 				'choice'   => strtoupper($choice)
 			]);
 
-			return Redirect::to('topic/show/'.$topic->id)->withNotice(trans('controllers.topic.vote_success'));
+			return Redirect::route('topic.show', ['id' => $topic->id])->withNotice(trans('controllers.topic.vote_success'));
 		}
 	}
 

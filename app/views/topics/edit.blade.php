@@ -3,7 +3,7 @@
 @section('container')
     <div id="topic-edit">
         <div class="container">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/topic/update/'.$topic->id) }}" accept-charset="UTF-8" enctype="multipart/form-data">
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('topic.update', ['id' => $topic->id]) }}" accept-charset="UTF-8" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="row">

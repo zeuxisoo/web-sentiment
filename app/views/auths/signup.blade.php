@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('views.user.signup') }}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth') }}" accept-charset="UTF-8">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('auth.store') }}" accept-charset="UTF-8">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="username" class="col-sm-2 control-label">{{ trans('views.user.username') }}</label>

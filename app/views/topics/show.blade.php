@@ -85,11 +85,11 @@
                     {{ trans('views.topic.comments_header', ['total' => $topic->comments->count()]) }}
                 </div>
                 <div class="panel-body">
-                    @if ($topic->comments->count() <= 0)
+                    @if ($comments->count() <= 0)
                         <div class="alert alert-info alert-comment">{{{ trans('views.topic.no_comments') }}}</div>
                     @else
                         {{-- */$counter = 1;/* --}}
-                        @foreach($topic->comments as $comment)
+                        @foreach($comments as $comment)
                             @if ($counter > 1)
                                 <hr>
                             @endif

@@ -74,16 +74,17 @@ class TopicController extends BaseController {
 	}
 
 	public function show($id) {
-		$topic      = Topic::with('User')->findOrFail($id);
+		$topic      = Topic::findOrFail($id);
+		$comments   = $topic->comments()->orderBy('created_at', 'asc')->with('user')->get();
 		$my_vote    = TopicVote::topicAndUser($topic, Auth::user())->first();
 		$vote_count = TopicVote::selectRaw("
-                SUM(choice='A') AS answer_a_count,
-                SUM(choice='B') AS answer_b_count
-            ")->topicAndUser($topic, Auth::user())->where(function($query) {
-                $query->where('choice', 'A')->orWhere('choice', 'B');
-            })->first(['answer_a_count', 'answer_b_count']);
+            SUM(choice='A') AS answer_a_count,
+            SUM(choice='B') AS answer_b_count
+        ")->topicAndUser($topic, Auth::user())->where(function($query) {
+            $query->where('choice', 'A')->orWhere('choice', 'B');
+        })->first(['answer_a_count', 'answer_b_count']);
 
-		return View::make('topics.show', compact('topic', 'my_vote', 'vote_count'));
+		return View::make('topics.show', compact('topic', 'comments', 'my_vote', 'vote_count'));
 	}
 
 	public function edit($id) {

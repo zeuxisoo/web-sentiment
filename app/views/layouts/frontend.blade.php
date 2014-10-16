@@ -37,6 +37,7 @@
                             <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>
                     </li>
+                    <li><a href="{{ route('topic.create') }}"><i class="fa fa-plus"></i></a></li>
                     <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
                     <li><a href="{{ route('auth.login') }}">{{ trans('views.frontend.signin') }}</a></li>

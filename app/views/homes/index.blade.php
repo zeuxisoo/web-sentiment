@@ -22,7 +22,11 @@
                                         </small>
                                     </div>
                                     <div class="status">
-                                        <small class="text-muted">@{{{ $topic->user->username }}}</small>
+                                        <small class="text-muted">
+                                            <a href="{{ route('user.show', ['username' => $topic->user->username]) }}">
+                                                {{{ $topic->user->username }}}
+                                            </a>
+                                        </small>
                                         <small class="text">{{ trans('views.home.at') }}</small>
                                         <small class="text-muted">{{{ $topic->created_at->diffForHumans() }}}</small>
                                         ,
@@ -56,7 +60,11 @@
                                         </small>
                                     </div>
                                     <div class="status">
-                                        <small class="text-muted">@{{{ $topic->user->username }}}</small>
+                                        <small class="text-muted">
+                                            <a href="{{ route('user.show', ['username' => $topic->user->username]) }}">
+                                                {{{ $topic->user->username }}}
+                                            </a>
+                                        </small>
                                         <small class="text">{{ trans('views.home.at') }}</small>
                                         <small class="text-muted">{{{ $topic->created_at->diffForHumans() }}}</small>
                                         ,
@@ -78,14 +86,9 @@
                 </div>
             </div>
 
-            @include('partials.advert')
+            @include('partials.random_users')
 
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('views.home.advert') }}</div>
-                <div class="panel-body">
-                    <img src="http://placehold.it/225x225">
-                </div>
-            </div>
+            @include('partials.advert')
         </div>
     </div>
 @stop

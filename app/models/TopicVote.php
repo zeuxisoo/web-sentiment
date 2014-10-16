@@ -3,7 +3,7 @@ class TopicVote extends Eloquent {
 
     protected $table = 'topic_vote';
 
-    protected $fillable = ['user_id', 'topic_id', 'choice'];
+    protected $fillable = ['user_id', 'topic_id', 'answer'];
 
     public static function boot() {
         parent::boot();

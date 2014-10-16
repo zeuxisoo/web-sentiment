@@ -72,10 +72,10 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        @if (strtoupper($vote->choice) == 'A')
-                                            <span class="label label-success">{{{ $vote->choice }}}</span>
+                                        @if (strtoupper($vote->answer) == 'A')
+                                            <span class="label label-success">{{{ $vote->answer }}}</span>
                                         @else
-                                            <span class="label label-danger">{{{ $vote->choice }}}</span>
+                                            <span class="label label-danger">{{{ $vote->answer }}}</span>
                                         @endif
 
                                         <a href="{{ route('topic.show', ['id' => $vote->topic->id]) }}">{{{ $vote->topic->subject }}}</a>

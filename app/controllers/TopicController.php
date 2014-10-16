@@ -78,10 +78,10 @@ class TopicController extends BaseController {
 		$comments   = $topic->comments()->orderBy('created_at', 'asc')->with('user')->get();
 		$my_vote    = TopicVote::topicAndUser($topic, Auth::user())->first();
 		$vote_count = TopicVote::selectRaw("
-            SUM(choice='A') AS answer_a_count,
-            SUM(choice='B') AS answer_b_count
+            SUM(answer='A') AS answer_a_count,
+            SUM(answer='B') AS answer_b_count
         ")->topicAndUser($topic, Auth::user())->where(function($query) {
-            $query->where('choice', 'A')->orWhere('choice', 'B');
+            $query->where('answer', 'A')->orWhere('answer', 'B');
         })->first(['answer_a_count', 'answer_b_count']);
 
 		return View::make('topics.show', compact('topic', 'comments', 'my_vote', 'vote_count'));
@@ -202,7 +202,7 @@ class TopicController extends BaseController {
 		}
 	}
 
-	public function vote($id, $choice) {
+	public function vote($id, $answer) {
 		$topic = Topic::with('User')->findOrFail($id);
 
 		Validator::extend('only_vote_once', function($attribute, $value, $parameters) use ($topic) {
@@ -210,7 +210,7 @@ class TopicController extends BaseController {
 		});
 
 		$validator = Validator::make(Route::getCurrentRoute()->parameters(), [
-			'choice' => 'in:a,b|only_vote_once',
+			'answer' => 'in:a,b|only_vote_once',
 		], [
 			'only_vote_once' => trans('controllers.topic.only_vote_once')
 		]);
@@ -221,7 +221,7 @@ class TopicController extends BaseController {
 			TopicVote::create([
 				'topic_id' => $topic->id,
 				'user_id'  => Auth::user()->id,
-				'choice'   => strtoupper($choice)
+				'answer'   => strtoupper($answer)
 			]);
 
 			return Redirect::route('topic.show', ['id' => $topic->id])->withNotice(trans('controllers.topic.vote_success'));

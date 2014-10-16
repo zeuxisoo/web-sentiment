@@ -20,7 +20,7 @@ Route::get('topic/show/{id}',          ['as' => 'topic.show',    'uses' => 'Topi
 Route::post('topic/comment/{id}',      ['as' => 'topic.comment', 'uses' => 'TopicController@comment']);
 Route::get('topic/edit/{id}',          ['as' => 'topic.edit',    'uses' => 'TopicController@edit']);
 Route::post('topic/update/{id}',       ['as' => 'topic.update',  'uses' => 'TopicController@update']);
-Route::get('topic/vote/{id}/{choice}', ['as' => 'topic.vote',    'uses' => 'TopicController@vote']);
+Route::get('topic/vote/{id}/{answer}', ['as' => 'topic.vote',    'uses' => 'TopicController@vote']);
 
 // User routes
 Route::get('user/{username}', ['as' => 'user.show', 'uses' => 'UserController@show']);

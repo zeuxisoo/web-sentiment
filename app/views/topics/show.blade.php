@@ -45,11 +45,11 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'choice' => 'a']) }}" class="btn btn-success">
+                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'a']) }}" class="btn btn-success">
                                 {{{ $topic->answer_a_text }}}
                             </a>
 
-                            @if ($my_vote && strtoupper($my_vote->choice) == 'A')
+                            @if ($my_vote && strtoupper($my_vote->answer) == 'A')
                                 <span class="label label-default">{{ trans('views.topic.voted') }}</span>
                             @endif
 
@@ -63,11 +63,11 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'choice' => 'b']) }}" class="btn btn-danger">
+                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'b']) }}" class="btn btn-danger">
                                 {{{ $topic->answer_b_text }}}
                             </a>
 
-                            @if ($my_vote && strtoupper($my_vote->choice) == 'B')
+                            @if ($my_vote && strtoupper($my_vote->answer) == 'B')
                                 <span class="label label-default">{{ trans('views.topic.voted') }}</span>
                             @endif
 

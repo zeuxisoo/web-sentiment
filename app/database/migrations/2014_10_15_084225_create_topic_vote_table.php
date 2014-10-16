@@ -17,7 +17,7 @@ class CreateTopicVoteTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->references('id')->on('user');
 			$table->integer('topic_id')->unsigned()->references('id')->on('topic');
-			$table->enum('choice', ['A', 'B']);
+			$table->enum('answer', ['A', 'B']);
 			$table->timestamps();
 		});
 	}

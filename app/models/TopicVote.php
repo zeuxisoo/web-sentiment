@@ -22,7 +22,11 @@ class TopicVote extends Eloquent {
     }
 
     public function scopeTopicAndUser($query, $topic, $user) {
-        return $query->whereTopicId($topic->id)->whereUserId($user->id);
+        if (is_null($user) == false) {
+            return $query->whereTopicId($topic->id)->whereUserId($user->id);
+        }else{
+            return $query;
+        }
     }
 
 }

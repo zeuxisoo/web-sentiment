@@ -1,5 +1,5 @@
 <?php
-class UserRepository {
+class AuthRepository {
 
     public function signup($input) {
         $user = new User;

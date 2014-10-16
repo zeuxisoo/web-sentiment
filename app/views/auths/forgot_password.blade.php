@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('views.user.forgot_password') }}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/user/forgot_password') }}" accept-charset="UTF-8">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/forgot_password') }}" accept-charset="UTF-8">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="email" class="col-sm-2 control-label">{{ trans('views.user.email') }}</label>

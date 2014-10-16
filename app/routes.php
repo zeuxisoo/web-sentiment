@@ -2,16 +2,16 @@
 Route::get('/', 'HomeController@index');
 
 // Confide routes
-Route::get('user/create', 'UserController@create');
-Route::post('user', 'UserController@store');
-Route::get('user/login', 'UserController@login');
-Route::post('user/login', 'UserController@doLogin');
-Route::get('user/confirm/{code}', 'UserController@confirm');
-Route::get('user/forgot_password', 'UserController@forgotPassword');
-Route::post('user/forgot_password', 'UserController@doForgotPassword');
-Route::get('user/reset_password/{token}', 'UserController@resetPassword');
-Route::post('user/reset_password', 'UserController@doResetPassword');
-Route::get('user/logout', 'UserController@logout');
+Route::get('auth/create', 'AuthController@create');
+Route::post('auth', 'AuthController@store');
+Route::get('auth/login', 'AuthController@login');
+Route::post('auth/login', 'AuthController@doLogin');
+Route::get('auth/confirm/{code}', 'AuthController@confirm');
+Route::get('auth/forgot_password', 'AuthController@forgotPassword');
+Route::post('auth/forgot_password', 'AuthController@doForgotPassword');
+Route::get('auth/reset_password/{token}', 'AuthController@resetPassword');
+Route::post('auth/reset_password', 'AuthController@doResetPassword');
+Route::get('auth/logout', 'AuthController@logout');
 
 // Topic routes
 Route::get('topic/create', 'TopicController@create');

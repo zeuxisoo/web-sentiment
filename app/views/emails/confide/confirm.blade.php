@@ -3,8 +3,8 @@
 <p>{{ trans('confide::confide.email.account_confirmation.greetings', ['name' => $user['username']]) }},</p>
 
 <p>{{ trans('confide::confide.email.account_confirmation.body') }}</p>
-<a href="{{ url('user/confirm/'.$user['confirmation_code']) }}">
-    {{ url('user/confirm/'.$user['confirmation_code']) }}
+<a href="{{ url('/auth/confirm/'.$user['confirmation_code']) }}">
+    {{ url('/auth/confirm/'.$user['confirmation_code']) }}
 </a>
 
 <p>{{ trans('confide::confide.email.account_confirmation.farewell') }}</p>

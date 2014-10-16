@@ -46,10 +46,10 @@ return array(
     |
     |
     */
-    'login_form' =>             'users.signin',
-    'signup_form' =>            'users.signup',
-    'forgot_password_form' =>   'users.forgot_password',
-    'reset_password_form' =>    'users.reset_password',
+    'login_form' =>             'auths.signin',
+    'signup_form' =>            'auths.signup',
+    'forgot_password_form' =>   'auths.forgot_password',
+    'reset_password_form' =>    'auths.reset_password',
 
     /*
     |--------------------------------------------------------------------------

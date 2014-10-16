@@ -29,7 +29,11 @@ class Topic extends Eloquent {
     }
 
     public function coverImage() {
-        return asset('/attachments/cover/'.$this->cover);
+        if (File::exists($this->coverImagePath()) === true) {
+            return asset('/attachments/cover/'.$this->cover);
+        }else{
+            return asset('/assets/client/img/no-cover.png');
+        }
     }
 
     public function answerAImage() {

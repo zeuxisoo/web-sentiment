@@ -23,4 +23,5 @@ Route::post('topic/update/{id}',       ['as' => 'topic.update',  'uses' => 'Topi
 Route::get('topic/vote/{id}/{answer}', ['as' => 'topic.vote',    'uses' => 'TopicController@vote']);
 
 // User routes
-Route::get('user/{username}', ['as' => 'user.show', 'uses' => 'UserController@show']);
+Route::get('user/profile/{username}', ['as' => 'user.profile',  'uses' => 'UserController@profile']);
+Route::get('user/settings',           ['as' => 'user.settings', 'uses' => 'UserController@settings']);

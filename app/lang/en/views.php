@@ -55,6 +55,8 @@ return [
         'voted'             => "Voted",
         'answer_a'          => "Answer A",
         'answer_b'          => "Answer B",
+
+        'no_answer_image'   => "No answer images :(",
     ],
     'home' => [
         'latest_topics'  => "Latest topics",

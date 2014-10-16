@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="status">
                                         <small class="text-muted">
-                                            <a href="{{ route('user.show', ['username' => $topic->user->username]) }}">
+                                            <a href="{{ route('user.profile', ['username' => $topic->user->username]) }}">
                                                 {{{ $topic->user->username }}}
                                             </a>
                                         </small>
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="status">
                                         <small class="text-muted">
-                                            <a href="{{ route('user.show', ['username' => $topic->user->username]) }}">
+                                            <a href="{{ route('user.profile', ['username' => $topic->user->username]) }}">
                                                 {{{ $topic->user->username }}}
                                             </a>
                                         </small>

@@ -1,7 +1,11 @@
 <?php
 class UserController extends \BaseController {
 
-	public function show($username) {
+	public function __construct() {
+		$this->beforeFilter('auth', ['except' => 'profile']);
+	}
+
+	public function profile($username) {
 		$user        = User::whereUsername($username)->firstOrFail();
 		$topic_count = $user->topics()->count();
 		$vote_count  = $user->topicVotes()->count();
@@ -22,6 +26,10 @@ class UserController extends \BaseController {
 		}
 
 		return View::make('users.show', compact('user', 'topic_count', 'vote_count', 'tab_name', 'topics', 'votes', 'comments'));
+	}
+
+	public function settings() {
+		return "TODO";
 	}
 
 }

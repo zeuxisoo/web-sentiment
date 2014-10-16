@@ -33,12 +33,13 @@
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())
                     <li>
-                        <a href="{{ route('user.show', ['username' => Auth::user()->username]) }}">
+                        <a href="{{ route('user.profile', ['username' => Auth::user()->username]) }}">
                             <img src="{{ Auth::user()->avatar(20) }}">&nbsp;
                             <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>
                     </li>
                     <li><a href="{{ route('topic.create') }}"><i class="fa fa-plus"></i></a></li>
+                    <li><a href="{{ route('user.settings') }}"><i class="fa fa-cog"></i></a></li>
                     <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
                     <li><a href="{{ route('auth.login') }}">{{ trans('views.frontend.signin') }}</a></li>

@@ -26,17 +26,17 @@
         <div class="col-md-9">
             <ul class="nav nav-tabs" role="tablist">
                 <li>
-                    <a href="{{ route('user.show', ['username' => $user->username]) }}?tab=topics" data-tab='topics' data-tab-param='tab'>
+                    <a href="{{ route('user.profile', ['username' => $user->username]) }}?tab=topics" data-tab='topics' data-tab-param='tab'>
                         <i class="fa fa-th-list"></i>&nbsp;{{ trans('views.user.topics_tab') }}
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.show', ['username' => $user->username]) }}?tab=votes" data-tab='votes' data-tab-param='tab'>
+                    <a href="{{ route('user.profile', ['username' => $user->username]) }}?tab=votes" data-tab='votes' data-tab-param='tab'>
                         <i class="fa fa-thumbs-up"></i>&nbsp;{{ trans('views.user.votes_tab') }}
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.show', ['username' => $user->username]) }}?tab=comments" data-tab='comments' data-tab-param='tab'>
+                    <a href="{{ route('user.profile', ['username' => $user->username]) }}?tab=comments" data-tab='comments' data-tab-param='tab'>
                         <i class="fa fa-comments"></i>&nbsp;{{ trans('views.user.comments_tab') }}
                     </a>
                 </li>

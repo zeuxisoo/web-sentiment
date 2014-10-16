@@ -8,7 +8,7 @@
                     <div class="lead topic-subject">{{{ $topic->subject }}}</div>
                     <div class="topic-meta">
                         <i class="fa fa-user"></i>&nbsp;
-                        <a href="{{ route('user.show', ['username' => $topic->user->username]) }}">
+                        <a href="{{ route('user.profile', ['username' => $topic->user->username]) }}">
                             {{{ $topic->user->username }}}
                         </a>&nbsp;
 
@@ -54,9 +54,16 @@
                             @endif
 
                             <hr>
-                            <a href="#" class="thumbnail">
-                                <img src="{{{ $topic->answerAImage() }}}" class="img-rounded">
-                            </a>
+
+                            @if (File::exists($topic->answerAImagePath()) === true)
+                                <a href="#" class="thumbnail">
+                                    <img src="{{{ $topic->answerAImage() }}}" class="img-rounded">
+                                </a>
+                            @else
+                                <div class="alert alert-default">
+                                    {{ trans('views.topic.no_answer_image') }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -72,9 +79,15 @@
                             @endif
 
                             <hr>
-                            <a href="#" class="thumbnail">
-                                <img src="{{{ $topic->answerBImage() }}}" class="img-rounded">
-                            </a>
+                            @if (File::exists($topic->answerBImagePath()) === true)
+                                <a href="#" class="thumbnail">
+                                    <img src="{{{ $topic->answerBImage() }}}" class="img-rounded">
+                                </a>
+                            @else
+                                <div class="alert alert-default">
+                                    {{ trans('views.topic.no_answer_image') }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -100,7 +113,7 @@
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">
-                                        <a href="{{ route('user.show', ['username' => $comment->user->username]) }}">
+                                        <a href="{{ route('user.profile', ['username' => $comment->user->username]) }}">
                                             {{{ $comment->user->username }}}
                                         </a>
                                         <small>

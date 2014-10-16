@@ -9,7 +9,7 @@ return [
         'error'  => "Error!",
         'notice' => "Notice!",
     ],
-    'user' => [
+    'auth' => [
         'forgot_password'  => "Forgot password",
         'email'            => "Email",
         'submit'           => "Submit",

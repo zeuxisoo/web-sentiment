@@ -8,7 +8,9 @@
                     <div class="lead topic-subject">{{{ $topic->subject }}}</div>
                     <div class="topic-meta">
                         <i class="fa fa-user"></i>&nbsp;
-                        {{{ $topic->user->username }}}&nbsp;
+                        <a href="{{ route('user.show', ['username' => $topic->user->username]) }}">
+                            {{{ $topic->user->username }}}
+                        </a>&nbsp;
 
                         <i class="fa fa-clock-o"></i>&nbsp;
                         {{{ $topic->created_at->diffForHumans() }}}&nbsp;
@@ -98,7 +100,7 @@
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">
-                                        <a href="#">
+                                        <a href="{{ route('user.show', ['username' => $comment->user->username]) }}">
                                             {{{ $comment->user->username }}}
                                         </a>
                                         <small>

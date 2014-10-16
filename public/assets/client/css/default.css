@@ -38,3 +38,10 @@
 #topic-show .alert-comment {
     margin-bottom: 0px;
 }
+
+/**/
+#user-show .username {
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 10px;
+}

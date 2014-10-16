@@ -8,6 +8,7 @@
 <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/client/css/default.css') }}" rel="stylesheet" media="screen">
 <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/jquery.parseparams.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-filestyle.min.js') }}"></script>
 <script src="{{ asset('assets/client/js/default.js') }}"></script>
@@ -32,7 +33,7 @@
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())
                     <li>
-                        <a href="#">
+                        <a href="{{ route('user.show', ['username' => Auth::user()->username]) }}">
                             <img src="{{ Auth::user()->avatar(20) }}">&nbsp;
                             <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>

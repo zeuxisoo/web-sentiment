@@ -67,5 +67,17 @@ return [
         'activiti_users' => "Activiti users",
         'random_users'   => "Random users",
         'advert'         => "Advert",
+    ],
+    'user' => [
+        'topics_count' => "Topics",
+        'votes_count'  => "Votes",
+
+        'topics_tab'   => "Topics",
+        'votes_tab'    => "Votes",
+        'comments_tab' => "Comments",
+
+        'no_topics'    => "No topics",
+        'no_votes'     => "No votes",
+        'no_comments'  => "No comments",
     ]
 ];

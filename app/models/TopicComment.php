@@ -9,6 +9,10 @@ class TopicComment extends Eloquent {
         return $this->belongsTo('User');
     }
 
+    public function topic() {
+        return $this->belongsTo('Topic');
+    }
+
     public function scopeLatest($query) {
         return $query->orderBy('created_at', 'desc');
     }

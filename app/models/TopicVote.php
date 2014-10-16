@@ -21,6 +21,10 @@ class TopicVote extends Eloquent {
         return $this->belongsTo('Topic');
     }
 
+    public function scopeLatest($query) {
+        return $query->orderBy('created_at', 'desc');
+    }
+
     public function scopeTopicAndUser($query, $topic, $user) {
         if (is_null($user) == false) {
             return $query->whereTopicId($topic->id)->whereUserId($user->id);

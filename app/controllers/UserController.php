@@ -33,14 +33,22 @@ class UserController extends \BaseController {
 
 		if (Request::isMethod('post') === true) {
 			$validator = Validator::make(Input::all(), [
-				'username' => 'required|alpha_dash|min:4|unique:user,username',
-				'email'    => 'required|email|unique:user,email',
+				'username' => 'alpha_dash|min:4|unique:user,username',
+				'email'    => 'email|unique:user,email',
 			]);
 
 			if ($validator->fails()) {
 				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
-				// TODO: update to database
+				$input_data = Input::only(['username', 'email']);
+
+				foreach($input_data as $key => $input) {
+					if (empty($input) === true) {
+						unset($input_data[$key]);
+					}
+				}
+
+				$user->update($input_data);
 
 				return Redirect::back()->withNotice(trans('controllers.user.update_profile_success'));
 			}
@@ -68,7 +76,10 @@ class UserController extends \BaseController {
 			if ($validator->fails()) {
 				return Redirect::back()->withErrors($validator)->withInput();
 			}else{
-				// TODO: update to database
+				// By pass package: Zizaco\Confide\UserValidator->validatePassword
+				$user->password              = Input::get('new_password');
+				$user->password_confirmation = Input::get('new_password');
+				$user->save();
 
 				return Redirect::back()->withNotice(trans('controllers.user.update_password_success'));
 			}

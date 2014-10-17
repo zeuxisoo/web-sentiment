@@ -9,13 +9,15 @@
                 <div class="form-group">
                     <label for="username" class="col-sm-2 control-label">{{ trans('views.user.username') }}</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="{{ trans('views.user.username') }}" value="{{ Input::old('username') ?: $user->username }}">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="{{ trans('views.user.username') }}" value="{{ Input::old('username') }}">
+                        <p class="help-block"><strong>{{ trans('views.user.current') }}</strong>: {{{ $user->username }}}</p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-2 control-label">{{ trans('views.user.email') }}</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="{{ trans('views.user.email') }}" value="{{ Input::old('email') ?: $user->email }}">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="{{ trans('views.user.email') }}" value="{{ Input::old('email')  }}">
+                        <p class="help-block"><strong>{{ trans('views.user.current') }}</strong>: {{{ $user->email }}}</p>
                     </div>
                 </div>
                 <div class="form-group">

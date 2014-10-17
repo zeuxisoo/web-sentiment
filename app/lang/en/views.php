@@ -86,6 +86,7 @@ return [
         'username'         => "Username",
         'email'            => "Email",
         'update'           => "Update",
+        'current'          => "Current",
 
         'password_heading' => "Password",
         'old_password'     => "Old password",

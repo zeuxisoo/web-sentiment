@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li><a href="{{ route('topic.create') }}"><i class="fa fa-plus"></i></a></li>
-                    <li><a href="{{ route('user.settings') }}"><i class="fa fa-cog"></i></a></li>
+                    <li><a href="{{ route('user.settings.profile') }}"><i class="fa fa-cog"></i></a></li>
                     <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out fa-lg"></i></a></li>
                 @else
                     <li><a href="{{ route('auth.login') }}">{{ trans('views.frontend.signin') }}</a></li>

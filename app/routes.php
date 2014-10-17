@@ -23,5 +23,6 @@ Route::post('topic/update/{id}',       ['as' => 'topic.update',  'uses' => 'Topi
 Route::get('topic/vote/{id}/{answer}', ['as' => 'topic.vote',    'uses' => 'TopicController@vote']);
 
 // User routes
-Route::get('user/profile/{username}', ['as' => 'user.profile',  'uses' => 'UserController@profile']);
-Route::get('user/settings',           ['as' => 'user.settings', 'uses' => 'UserController@settings']);
+Route::get('user/profile/{username}', ['as' => 'user.profile', 'uses' => 'UserController@profile']);
+Route::match(['GET', 'POST'], 'user/settings/profile',  ['as' => 'user.settings.profile',  'uses' => 'UserController@settingsProfile']);
+Route::match(['GET', 'POST'], 'user/settings/password', ['as' => 'user.settings.password', 'uses' => 'UserController@settingsPassword']);

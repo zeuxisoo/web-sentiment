@@ -71,15 +71,26 @@ return [
         'advert'         => "Advert",
     ],
     'user' => [
-        'topics_count' => "Topics",
-        'votes_count'  => "Votes",
+        'topics_count'     => "Topics",
+        'votes_count'      => "Votes",
 
-        'topics_tab'   => "Topics",
-        'votes_tab'    => "Votes",
-        'comments_tab' => "Comments",
+        'topics_tab'       => "Topics",
+        'votes_tab'        => "Votes",
+        'comments_tab'     => "Comments",
 
-        'no_topics'    => "No topics",
-        'no_votes'     => "No votes",
-        'no_comments'  => "No comments",
+        'no_topics'        => "No topics",
+        'no_votes'         => "No votes",
+        'no_comments'      => "No comments",
+
+        'profile_heading'  => "Profile",
+        'username'         => "Username",
+        'email'            => "Email",
+        'update'           => "Update",
+
+        'password_heading' => "Password",
+        'old_password'     => "Old password",
+        'new_password'     => "New password",
+        'confirm_password' => "Confirm password",
+        'forgot_password'  => "I forgot my password",
     ]
 ];

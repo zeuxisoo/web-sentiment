@@ -27,8 +27,8 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ route('home.index') }}">{{ trans('views.frontend.home') }}</a></li>
-                <li><a href="#hot">{{ trans('views.frontend.hot') }}</a></li>
-                <li><a href="#latest">{{ trans('views.frontend.latest') }}</a></li>
+                <li><a href="{{ route('home.hot') }}">{{ trans('views.frontend.hot') }}</a></li>
+                <li><a href="{{ route('home.latest') }}">{{ trans('views.frontend.latest') }}</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())

@@ -1,5 +1,7 @@
 <?php
-Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
+Route::get('/',       ['as' => 'home.index',  'uses' => 'HomeController@index']);
+Route::get('/hot',    ['as' => 'home.hot',    'uses' => 'HomeController@hot']);
+Route::get('/latest', ['as' => 'home.latest', 'uses' => 'HomeController@latest']);
 
 // Confide routes
 Route::get('auth/create', ['as' => 'auth.create', 'uses' => 'AuthController@create']);

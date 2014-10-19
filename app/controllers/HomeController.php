@@ -9,4 +9,12 @@ class HomeController extends BaseController {
 		return View::make('homes.index', compact('latest_topics', 'hot_topics', 'random_users'));
 	}
 
+    public function hot() {
+        return "TODO: hot";
+    }
+
+    public function latest() {
+        return "TODO: latest";
+    }
+
 }

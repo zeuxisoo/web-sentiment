@@ -22,9 +22,8 @@
                 </div>
             </div>
 
-            @include('partials.random_users')
-
-            @include('partials.advert')
+            @include('blocks.random_users')
+            @include('blocks.advert')
         </div>
     </div>
 @stop

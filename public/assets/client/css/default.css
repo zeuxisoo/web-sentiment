@@ -45,3 +45,8 @@
     font-size: 18px;
     padding-top: 10px;
 }
+
+/**/
+.pager.pager-topics {
+    margin: 0px;
+}

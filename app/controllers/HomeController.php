@@ -10,11 +10,17 @@ class HomeController extends BaseController {
 	}
 
     public function hot() {
-        return "TODO: hot";
+        $hot_topics   = Topic::hot()->with('user')->simplePaginate(20);
+        $random_users = User::random(6);
+
+        return View::make('homes.hot', compact('hot_topics', 'random_users'));
     }
 
     public function latest() {
-        return "TODO: latest";
+        $latest_topics = Topic::latest()->with('user')->simplePaginate(20);
+        $random_users  = User::random(6);
+
+        return View::make('homes.latest', compact('latest_topics', 'random_users'));
     }
 
 }

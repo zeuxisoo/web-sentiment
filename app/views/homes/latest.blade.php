@@ -16,12 +16,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body text-center">
-                    <a href="{{ route('topic.create') }}" class="btn btn-info btn-lg">{{ trans('views.home.create_topic') }}</a>
-                </div>
-            </div>
-
+            @include('blocks.create_topic')
             @include('blocks.random_users')
             @include('blocks.advert')
         </div>

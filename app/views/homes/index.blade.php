@@ -28,9 +28,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            @include('blocks.create_topic')
-            @include('blocks.random_users')
-            @include('blocks.advert')
+            @include('homes.partials.sidebar')
         </div>
     </div>
 @stop

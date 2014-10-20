@@ -69,6 +69,8 @@ return [
         'activiti_users' => "Activiti users",
         'random_users'   => "Random users",
         'advert'         => "Advert",
+
+        'more'           => "More ...",
     ],
     'user' => [
         'topics_count'     => "Topics",

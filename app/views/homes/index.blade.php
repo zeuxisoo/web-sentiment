@@ -39,6 +39,9 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="panel-footer text-right">
+                    <a href="{{ route('home.latest') }}">{{ trans('views.home.more') }}</a>
+                </div>
             </div>
 
             <div class="panel panel-default">
@@ -76,6 +79,9 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="panel-footer text-right">
+                    <a href="{{ route('home.hot') }}">{{ trans('views.home.more') }}</a>
                 </div>
             </div>
         </div>

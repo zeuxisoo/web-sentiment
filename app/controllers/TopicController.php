@@ -82,7 +82,7 @@ class TopicController extends BaseController {
             SUM(answer='B') AS answer_b_count
         ")->topicAndUser($topic, Auth::user())->where(function($query) {
             $query->where('answer', 'A')->orWhere('answer', 'B');
-        })->first(['answer_a_count', 'answer_b_count']);
+        })->whereTopicId($topic->id)->first(['answer_a_count', 'answer_b_count']);
 
         // View count
         $viewed_topic_ids = Session::get('viewed_topic_ids', []);

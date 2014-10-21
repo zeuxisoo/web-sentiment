@@ -80,9 +80,9 @@ class TopicController extends BaseController {
 		$vote_count = TopicVote::selectRaw("
             SUM(answer='A') AS answer_a_count,
             SUM(answer='B') AS answer_b_count
-        ")->topicAndUser($topic, Auth::user())->where(function($query) {
+        ")->whereTopicId($topic->id)->where(function($query) {
             $query->where('answer', 'A')->orWhere('answer', 'B');
-        })->whereTopicId($topic->id)->first(['answer_a_count', 'answer_b_count']);
+        })->first(['answer_a_count', 'answer_b_count']);
 
         // View count
         $viewed_topic_ids = Session::get('viewed_topic_ids', []);

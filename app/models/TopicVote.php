@@ -26,11 +26,15 @@ class TopicVote extends Eloquent {
     }
 
     public function scopeTopicAndUser($query, $topic, $user) {
-        if (is_null($user) == false) {
-            return $query->whereTopicId($topic->id)->whereUserId($user->id);
+        $query = $query->whereTopicId($topic->id);
+
+        if ($user === null) {
+            $query = $query->whereUserId(null);
         }else{
-            return $query;
+            $uqery = $query->whereUserId($user->id);
         }
+
+        return $query;
     }
 
 }

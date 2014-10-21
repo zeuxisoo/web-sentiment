@@ -49,7 +49,7 @@
                                 {{{ $topic->answer_a_text }}}
                             </a>
 
-                            @if ($my_vote && strtoupper($my_vote->answer) == 'A')
+                            @if ($my_vote !== null && strtoupper($my_vote->answer) == 'A')
                                 <span class="label label-default">{{ trans('views.topic.voted') }}</span>
                             @endif
 
@@ -74,7 +74,7 @@
                                 {{{ $topic->answer_b_text }}}
                             </a>
 
-                            @if ($my_vote && strtoupper($my_vote->answer) == 'B')
+                            @if ($my_vote !== null && strtoupper($my_vote->answer) == 'B')
                                 <span class="label label-default">{{ trans('views.topic.voted') }}</span>
                             @endif
 

@@ -22,6 +22,10 @@
                 <small class="text-muted">{{{ $topic->created_at->diffForHumans() }}}</small>
                 ,
                 <small class="text-muted">
+                    {{ trans('views.home.view_message', ['view_count' => $topic->view_count]) }}
+                </small>
+                ,
+                <small class="text-muted">
                     {{ trans('views.home.vote_message', ['vote_count' => $topic->vote_count]) }}
                 </small>
             </div>

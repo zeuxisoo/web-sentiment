@@ -61,7 +61,8 @@ return [
     'home' => [
         'latest_topics'  => "Latest topics",
         'at'             => "at",
-        'vote_message'   => ":vote_count peoples voted",
+        'view_message'   => ":view_count viewe",
+        'vote_message'   => ":vote_count vote",
 
         'hot_topics'     => "Hot topics",
 

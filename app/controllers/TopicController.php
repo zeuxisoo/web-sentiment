@@ -84,6 +84,17 @@ class TopicController extends BaseController {
             $query->where('answer', 'A')->orWhere('answer', 'B');
         })->first(['answer_a_count', 'answer_b_count']);
 
+        // View count
+        $viewed_topic_ids = Session::get('viewed_topic_ids', []);
+
+        if (empty($viewed_topic_ids) === true || in_array($topic->id, $viewed_topic_ids) === false) {
+        	$topic->increment('view_count');
+
+        	array_push($viewed_topic_ids, $topic->id);
+
+        	Session::put('viewed_topic_ids', $viewed_topic_ids);
+        }
+
 		return View::make('topics.show', compact('topic', 'comments', 'my_vote', 'vote_count'));
 	}
 

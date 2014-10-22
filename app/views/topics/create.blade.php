@@ -15,6 +15,16 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="category" class="col-sm-2 control-label">{{ trans('views.topic.category') }}</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="category_id">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="cover" class="col-sm-2 control-label">{{ trans('views.topic.cover') }}</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control file-input" id="cover" name="cover" placeholder="{{ trans('views.topic.cover') }}" value="{{ Input::old('cover') }}">

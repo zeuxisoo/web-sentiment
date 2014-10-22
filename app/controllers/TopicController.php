@@ -10,12 +10,15 @@ class TopicController extends BaseController {
 	}
 
 	public function create() {
-		return View::make('topics.create');
+		$categories = TopicCategory::all();
+
+		return View::make('topics.create', compact('categories'));
 	}
 
 	public function store() {
 		$validator = Validator::make(Input::all(), [
 			'subject'        => 'required',
+			'category_id'    => 'required|exists:topic_category,id',
 			'description'    => 'required',
 			'answer_a_text'  => 'required',
 			'answer_b_text'  => 'required',
@@ -58,7 +61,7 @@ class TopicController extends BaseController {
 			}
 
 			$input_data = array_merge(
-				Input::only('subject', 'description', 'answer_a_text', 'answer_b_text'),
+				Input::only('subject', 'category_id', 'description', 'answer_a_text', 'answer_b_text'),
 				[
 					'user_id'        => Auth::user()->id,
 					'cover'          => $cover ? $cover->basename : "",
@@ -104,7 +107,9 @@ class TopicController extends BaseController {
 		if ($topic->user_id !== Auth::user()->id) {
 			return Redirect::route('topic.show', ['id' => $topic->id])->withError(trans('controllers.topic.not_topic_owner'));
 		}else{
-			return View::make('topics.edit', compact('topic'));
+			$categories = TopicCategory::all();
+
+			return View::make('topics.edit', compact('topic', 'categories'));
 		}
 	}
 
@@ -116,6 +121,7 @@ class TopicController extends BaseController {
 		}else{
 			$validator = Validator::make(Input::all(), [
 				'subject'        => 'required',
+				'category_id'    => 'required|exists:topic_category,id',
 				'description'    => 'required',
 				'answer_a_text'  => 'required',
 				'answer_b_text'  => 'required',
@@ -170,7 +176,7 @@ class TopicController extends BaseController {
 				}
 
 				$input_data = array_merge(
-					Input::only('subject', 'description', 'answer_a_text', 'answer_b_text'),
+					Input::only('subject', 'category_id', 'description', 'answer_a_text', 'answer_b_text'),
 					[
 						'cover'          => $cover ? $cover->basename : $topic->cover,
 						'answer_a_image' => $answer_a_image ? $answer_a_image->basename : $topic->answer_a_image,

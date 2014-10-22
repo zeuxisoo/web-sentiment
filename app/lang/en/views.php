@@ -30,6 +30,7 @@ return [
     'topic' => [
         'create'            => "Create topic",
         'subject'           => "Subject",
+        'category'          => "Category",
         'cover'             => "Cover",
         'description'       => "Description",
         'answer_a_text'     => "Answer A (Text)",

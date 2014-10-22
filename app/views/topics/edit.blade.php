@@ -17,7 +17,20 @@
                                         <input type="text" class="form-control" id="subject" name="subject" placeholder="{{ trans('views.topic.subject') }}" value="{{{ Input::old('subject') ?: $topic->subject }}}">
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="category" class="col-sm-2 control-label">{{ trans('views.topic.category') }}</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="category_id">
+                                            @foreach($categories as $category)
+                                                @if ($topic->category_id === $category->id)
+                                                    <option value="{{ $category->id }}" selected="selected">{{ $category->name }}</option>
+                                                @else
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="description" class="col-sm-2 control-label">{{ trans('views.topic.description') }}</label>
                                     <div class="col-sm-10">

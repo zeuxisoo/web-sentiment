@@ -14,18 +14,16 @@
             </div>
             <div class="status">
                 <small class="text-muted">
+                    <label class="label label-default">{{{ $topic->category->name }}}</label>
+                    &nbsp;•&nbsp;
                     <a href="{{ route('user.profile', ['username' => $topic->user->username]) }}">
                         {{{ $topic->user->username }}}
                     </a>
-                </small>
-                <small class="text">{{ trans('views.home.at') }}</small>
-                <small class="text-muted">{{{ $topic->created_at->diffForHumans() }}}</small>
-                ,
-                <small class="text-muted">
+                    &nbsp;•&nbsp;
+                    {{{ $topic->created_at->diffForHumans() }}}
+                    &nbsp;•&nbsp;
                     {{ trans('views.home.view_message', ['view_count' => $topic->view_count]) }}
-                </small>
-                ,
-                <small class="text-muted">
+                    &nbsp;•&nbsp;
                     {{ trans('views.home.vote_message', ['vote_count' => $topic->vote_count]) }}
                 </small>
             </div>

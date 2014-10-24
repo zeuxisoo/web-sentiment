@@ -1,6 +1,7 @@
 <?php
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Confide\ConfideUserInterface;
+use Illuminate\Database\Eloquent\Collection;
 
 class User extends Eloquent implements ConfideUserInterface {
 
@@ -28,8 +29,13 @@ class User extends Eloquent implements ConfideUserInterface {
     public function scopeRandom($query, $amount = 6) {
         $items  = $this->orderBy('created_at', 'desc')->take(100)->get();
         $amount = $items->count() > $amount ? $amount : $items->count();
+        $users  = $items->random($amount);
 
-        return $items->random($amount);
+        if (is_array($users) === false) {
+            return [$users];
+        }else{
+            return $users;
+        }
     }
 
 }

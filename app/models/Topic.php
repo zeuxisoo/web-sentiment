@@ -33,7 +33,7 @@ class Topic extends Eloquent {
     }
 
     public function coverImage() {
-        if (File::exists($this->coverImagePath()) === true) {
+        if (File::exists($this->coverImagePath()) === true && File::isFile($this->coverImagePath()) === true) {
             return asset('/attachments/cover/'.$this->cover);
         }else{
             return asset('/assets/client/img/no-cover.png');

@@ -25,6 +25,9 @@
                 return false;
             }
         });
+
+        //
+        $("#tags").tagit();
     });
 
 })(jQuery);

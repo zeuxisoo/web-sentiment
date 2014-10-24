@@ -37,6 +37,7 @@ return [
         'answer_a_image'    => "Answer A (Image)",
         'answer_b_text'     => "Answer B (Text)",
         'answer_b_image'    => "Answer B (Image)",
+        'tags'              => "Tags",
         'submit'            => "Submit",
 
         'leave_comment'     => "Leave a Comment",

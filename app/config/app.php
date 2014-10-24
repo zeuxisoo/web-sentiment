@@ -125,6 +125,7 @@ return array(
 		'Zizaco\Confide\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
+		'Conner\Tagging\TaggingServiceProvider',
 
 		'Barryvdh\Debugbar\ServiceProvider',
 	),

@@ -49,6 +49,12 @@
                                         <input type="text" class="form-control" id="answer_b_text" name="answer_b_text" placeholder="{{ trans('views.topic.answer_b_text') }}" value="{{{ Input::old('answer_b_text') ?: $topic->answer_b_text }}}">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="tags" class="col-sm-2 control-label">{{ trans('views.topic.tags') }}</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="tags" name="tags" placeholder="{{ trans('views.topic.tags') }}" value="{{{ Input::old('tags') ?: $tags }}}">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

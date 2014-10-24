@@ -30,17 +30,24 @@
             </div>
 
             <div class="panel panel-default">
+                <div class="panel-heading">{{ trans('views.topic.current_vote_stat') }}</div>
                 <div class="panel-body">
-                    <span class="btn btn-primary">{{ trans('views.topic.current_vote_stat') }}</span>
-                    <span class="btn btn-info">
-                        {{ trans('views.topic.voted') }} <span class="badge">{{{ $topic->vote_count }}}</span>
-                    </span>
-                    <span class="btn btn-success">
-                        {{ trans('views.topic.answer_a') }} <span class="badge">{{{ $vote_count->answer_a_count ?: 0 }}}</span>
-                    </span>
-                    <span class="btn btn-danger">
-                        {{ trans('views.topic.answer_b') }} <span class="badge">{{{ $vote_count->answer_b_count ?: 0 }}}</span>
-                    </span>
+                    <div class="pull-left">
+                        <span class="btn btn-info">
+                            {{ trans('views.topic.voted') }} <span class="badge">{{{ $topic->vote_count }}}</span>
+                        </span>
+                        <span class="btn btn-success">
+                            {{ trans('views.topic.answer_a') }} <span class="badge">{{{ $vote_count->answer_a_count ?: 0 }}}</span>
+                        </span>
+                        <span class="btn btn-danger">
+                            {{ trans('views.topic.answer_b') }} <span class="badge">{{{ $vote_count->answer_b_count ?: 0 }}}</span>
+                        </span>
+                    </div>
+                    <div class="pull-right">
+                        @foreach($topic->tagNames() as $tag_name)
+                            <div class="label label-default"><i class="fa fa-tag fa-fw"></i>&nbsp;{{{ $tag_name }}}</div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
 

@@ -70,7 +70,8 @@ class TopicController extends BaseController {
 				]
 			);
 
-			Topic::create($input_data);
+			$topic = Topic::create($input_data);
+			$topic->tag(Input::get('tags'));
 
 			return Redirect::route('topic.create')->withNotice(trans('controllers.topic.create_success'));
 		}
@@ -107,9 +108,10 @@ class TopicController extends BaseController {
 		if ($topic->user_id !== Auth::user()->id) {
 			return Redirect::route('topic.show', ['id' => $topic->id])->withError(trans('controllers.topic.not_topic_owner'));
 		}else{
+			$tags       = join(',', $topic->tagNames());
 			$categories = TopicCategory::all();
 
-			return View::make('topics.edit', compact('topic', 'categories'));
+			return View::make('topics.edit', compact('topic', 'tags', 'categories'));
 		}
 	}
 
@@ -185,6 +187,7 @@ class TopicController extends BaseController {
 				);
 
 				$topic->update($input_data);
+				$topic->retag(Input::get('tags'));
 
 				return Redirect::back()->withNotice(trans('controllers.topic.update_success'));
 			}

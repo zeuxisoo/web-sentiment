@@ -1,5 +1,9 @@
 <?php
+use Conner\Tagging\TaggableTrait;
+
 class Topic extends Eloquent {
+
+    use TaggableTrait;
 
     protected $table = 'topic';
 

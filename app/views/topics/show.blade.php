@@ -58,7 +58,7 @@
 
                             <hr>
 
-                            @if (File::exists($topic->answerAImagePath()) === true)
+                            @if (File::exists($topic->answerAImagePath()) === true && File::isFile($topic->answerAImagePath()) === true)
                                 <a href="#" class="thumbnail">
                                     <img src="{{{ $topic->answerAImage() }}}" class="img-rounded">
                                 </a>
@@ -82,7 +82,7 @@
                             @endif
 
                             <hr>
-                            @if (File::exists($topic->answerBImagePath()) === true)
+                            @if (File::exists($topic->answerBImagePath()) === true && File::isFile($topic->answerBImagePath()) === true)
                                 <a href="#" class="thumbnail">
                                     <img src="{{{ $topic->answerBImage() }}}" class="img-rounded">
                                 </a>

@@ -62,7 +62,7 @@
                             <div class="panel-body text-center">
                                 <input type="file" class="form-control file-input" id="cover" name="cover" placeholder="{{ trans('views.topic.cover') }}" value="{{ Input::old('cover') }}">
                                 <br>
-                                @if (file_exists($topic->coverImagePath()) === true)
+                                @if (File::exists($topic->coverImagePath()) === true && File::isFile($topic->coverImagePath()) === true )
                                     <a href="#" class="thumbnail">
                                         <img src="{{{ $topic->coverImage() }}}" class="img-rounded">
                                     </a>
@@ -85,7 +85,7 @@
                             <div class="panel-body">
                                 <input type="file" class="form-control file-input" id="answer_a_image" name="answer_a_image" placeholder="{{ trans('views.topic.answer_a_image') }}" value="{{ Input::old('answer_a_image') }}">
                                 <br>
-                                @if (file_exists($topic->answerAImagePath()) === true)
+                                @if (File::exists($topic->answerAImagePath()) === true && File::isFile($topic->answerAImagePath()) === true)
                                     <a href="#" class="thumbnail">
                                         <img src="{{{ $topic->answerAImage() }}}" class="img-rounded">
                                     </a>
@@ -105,7 +105,7 @@
                             <div class="panel-body">
                                 <input type="file" class="form-control file-input" id="answer_b_image" name="answer_b_image" placeholder="{{ trans('views.topic.answer_b_image') }}" value="{{ Input::old('answer_b_image') }}">
                                 <br>
-                                @if (file_exists($topic->answerBImagePath()) === true)
+                                @if (File::exists($topic->answerBImagePath()) === true && File::isFile($topic->answerBImagePath()) === true)
                                     <a href="#" class="thumbnail">
                                         <img src="{{{ $topic->answerBImage() }}}" class="img-rounded">
                                     </a>

@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            @include('blocks.social_login')
+            @include('auths.partials.social_login')
         </div>
     </div>
 @stop

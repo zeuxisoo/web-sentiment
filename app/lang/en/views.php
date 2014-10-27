@@ -24,6 +24,8 @@ return [
         'or'               => "Or",
         'forgot_password'  => "Forgot password",
 
+        'signin_with'      => "Sign in with ...",
+
         'signup'           => "Sign up",
         'username'         => "Username",
     ],

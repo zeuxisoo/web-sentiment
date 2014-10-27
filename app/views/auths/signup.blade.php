@@ -40,6 +40,8 @@
                     </form>
                 </div>
             </div>
+
+            @include('blocks.social_login')
         </div>
     </div>
 @stop

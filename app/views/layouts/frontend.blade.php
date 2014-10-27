@@ -5,6 +5,7 @@
 <title>Dummy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+<link href="{{ asset('assets/vendor/bootstrap-social/bootstrap-social.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/tag-it/css/jquery.tagit.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/tag-it/css/tagit.ui-zendesk.css') }}" rel="stylesheet" media="screen">

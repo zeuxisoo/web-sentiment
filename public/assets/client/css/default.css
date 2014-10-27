@@ -50,3 +50,9 @@
 .pager.pager-topics {
     margin: 0px;
 }
+
+.thumbnail-no-border {
+    border: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+}

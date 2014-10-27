@@ -5,7 +5,9 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body text-center">
-                    <img src="{{{ $user->avatar(230) }}}" class="img-rounded">
+                    <a href="#" class="thumbnail thumbnail-no-border">
+                        <img src="{{{ $user->avatar(230) }}}" class="img-rounded">
+                    </a>
                     <div class="text-left username">{{{ $user->username }}}</div>
                     <hr>
                     <div class="col-md-6">

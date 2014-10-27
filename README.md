@@ -14,9 +14,12 @@ Vendors
 
 Database
 
-    touch app/database/production.sqlite
+    make database
 
 Migrations
 
-    php artisan migrate
-    php artisan migrate --package=rtconner/laravel-tagging
+    make migrate
+
+Run
+
+    make server

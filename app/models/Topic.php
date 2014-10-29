@@ -8,7 +8,7 @@ class Topic extends Eloquent {
     protected $table = 'topic';
 
     protected $fillable = [
-        'user_id', 'category_id', 'subject', 'cover', 'description',
+        'user_id', 'topic_category_id', 'subject', 'cover', 'description',
         'answer_a_text', 'answer_b_text', 'answer_a_image', 'answer_b_image'
     ];
 
@@ -17,7 +17,7 @@ class Topic extends Eloquent {
     }
 
     public function category() {
-        return $this->belongsTo('TopicCategory');
+        return $this->belongsTo('TopicCategory', 'topic_category_id');
     }
 
     public function comments() {

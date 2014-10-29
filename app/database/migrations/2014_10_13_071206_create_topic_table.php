@@ -16,7 +16,7 @@ class CreateTopicTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->references('id')->on('user');
-			$table->integer('category_id')->unsigned()->references('id')->on('topic_category');
+			$table->integer('topic_category_id')->unsigned()->references('id')->on('topic_category');
 			$table->string('subject', 180)->index();
 			$table->string('cover', 64)->nullable();
 			$table->text('description');

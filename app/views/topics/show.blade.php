@@ -8,7 +8,9 @@
                     <div class="lead topic-subject">{{{ $topic->subject }}}</div>
                     <div class="topic-meta">
                         <i class="fa fa-gears"></i>&nbsp;
-                        {{{ $topic->category->name }}}&nbsp;
+                        <a href="{{ route('topic.category.index_with_code', ['code' => $topic->category->code]) }}">
+                            {{{ $topic->category->name }}}
+                        </a>&nbsp;
 
                         <i class="fa fa-user"></i>&nbsp;
                         <a href="{{ route('user.profile', ['username' => $topic->user->username]) }}">

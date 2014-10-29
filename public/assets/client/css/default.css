@@ -1,20 +1,20 @@
 /**/
-#index .topic {
+.topic {
     margin-bottom: 20px;
 }
 
-#index .topic .status {
+.topic .status {
     border-top: 1px solid #CCC;
     margin-top: 10px;
     padding-top: 5px;
 }
 
-#index .thumb-random {
+.thumb-random {
     display: block;
     margin-bottom: 10px;
 }
 
-#index .footer {
+.footer {
     margin-bottom: 20px;
 }
 
@@ -55,4 +55,13 @@
     border: 0px;
     padding: 0px;
     margin-bottom: 0px;
+}
+
+a.text-white {
+    color: #FFFFFF;
+}
+
+a:hover.text-white {
+    color: #8DCBFF;
+    text-decoration: none;
 }

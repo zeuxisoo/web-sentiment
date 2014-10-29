@@ -1,13 +1,14 @@
 <?php
 return [
     'frontend' => [
-        'home'   => "Home",
-        'hot'    => "Hot",
-        'latest' => "Latest",
-        'signin' => "Sign in",
-        'signup' => "Sgin up",
-        'error'  => "Error!",
-        'notice' => "Notice!",
+        'home'           => "Home",
+        'hot'            => "Hot",
+        'latest'         => "Latest",
+        'topic_category' => "Categories",
+        'signin'         => "Sign in",
+        'signup'         => "Sgin up",
+        'error'          => "Error!",
+        'notice'         => "Notice!",
     ],
     'auth' => [
         'forgot_password'  => "Forgot password",
@@ -99,5 +100,8 @@ return [
         'new_password'     => "New password",
         'confirm_password' => "Confirm password",
         'forgot_password'  => "I forgot my password",
+    ],
+    'topic_category' => [
+        'heading' => "Topic Category - :name"
     ]
 ];

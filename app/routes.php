@@ -29,5 +29,9 @@ Route::get('user/profile/{username}', ['as' => 'user.profile', 'uses' => 'UserCo
 Route::match(['GET', 'POST'], 'user/settings/profile',  ['as' => 'user.settings.profile',  'uses' => 'UserController@settingsProfile']);
 Route::match(['GET', 'POST'], 'user/settings/password', ['as' => 'user.settings.password', 'uses' => 'UserController@settingsPassword']);
 
-// OAuth
+// OAuth routes
 Route::get('oauth/connect/facebook', ['as' => 'oauth.connect.facebook', 'uses' => 'OAuthController@connectWithFacebook']);
+
+// Topic category routes
+Route::get('topic/category',        ['as' => 'topic.category.index',           'uses' => 'TopicCategoryController@index']);
+Route::get('topic/category/{code}', ['as' => 'topic.category.index_with_code', 'uses' => 'TopicCategoryController@index']);

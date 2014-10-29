@@ -26,6 +26,10 @@ class User extends Eloquent implements ConfideUserInterface {
         return $this->hasMany('TopicComment');
     }
 
+    public function connections() {
+        return $this->hasMany('UserConnection');
+    }
+
     public function scopeRandom($query, $amount = 6) {
         $items  = $this->orderBy('created_at', 'desc')->take(100)->get();
         $amount = $items->count() > $amount ? $amount : $items->count();

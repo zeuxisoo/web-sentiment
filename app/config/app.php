@@ -126,6 +126,7 @@ return array(
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 		'Conner\Tagging\TaggingServiceProvider',
+		'Artdarek\OAuth\OAuthServiceProvider',
 
 		'Barryvdh\Debugbar\ServiceProvider',
 	),
@@ -198,6 +199,7 @@ return array(
 		'Confide'         => 'Zizaco\Confide\Facade',
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		'Image'           => 'Intervention\Image\Facades\Image',
+		'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
 
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 	),

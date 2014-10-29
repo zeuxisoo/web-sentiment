@@ -28,3 +28,6 @@ Route::get('topic/vote/{id}/{answer}', ['as' => 'topic.vote',    'uses' => 'Topi
 Route::get('user/profile/{username}', ['as' => 'user.profile', 'uses' => 'UserController@profile']);
 Route::match(['GET', 'POST'], 'user/settings/profile',  ['as' => 'user.settings.profile',  'uses' => 'UserController@settingsProfile']);
 Route::match(['GET', 'POST'], 'user/settings/password', ['as' => 'user.settings.password', 'uses' => 'UserController@settingsPassword']);
+
+// OAuth
+Route::get('oauth/connect/facebook', ['as' => 'oauth.connect.facebook', 'uses' => 'OAuthController@connectWithFacebook']);

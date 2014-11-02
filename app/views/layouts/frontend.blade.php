@@ -35,6 +35,7 @@
                 <li><a href="{{ route('home.hot') }}">{{ trans('views.frontend.hot') }}</a></li>
                 <li><a href="{{ route('home.latest') }}">{{ trans('views.frontend.latest') }}</a></li>
                 <li><a href="{{ route('topic.category.index') }}">{{ trans('views.frontend.topic_category') }}</a></li>
+                <li><a href="{{ route('topic.tags.index') }}">{{ trans('views.frontend.topic_tags') }}</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())

@@ -5,6 +5,7 @@ return [
         'hot'            => "Hot",
         'latest'         => "Latest",
         'topic_category' => "Categories",
+        'topic_tags'     => "Tags",
         'signin'         => "Sign in",
         'signup'         => "Sgin up",
         'error'          => "Error!",

@@ -104,5 +104,10 @@ return [
     ],
     'topic_category' => [
         'heading' => "Topic Category - :name"
+    ],
+    'topic_tags' => [
+        'heading'           => "Topic Tag - :slug",
+        'all_tags'          => "All tags",
+        'no_related_topics' => "No related topics :)"
     ]
 ];

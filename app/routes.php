@@ -37,5 +37,5 @@ Route::get('topic/category',        ['as' => 'topic.category.index',           '
 Route::get('topic/category/{code}', ['as' => 'topic.category.index_with_code', 'uses' => 'TopicCategoryController@index']);
 
 // Topic tags routes
-Route::get('topic/tags',        ['as' => 'topic.tags.index',          'uses' => 'TopicTagsController@index']);
-Route::get('topic/tags/{slug}', ['as' => 'topic.tags.index_with_tag', 'uses' => 'TopicTagsController@index']);
+Route::get('topic/tags',        ['as' => 'topic.tags.index',           'uses' => 'TopicTagsController@index']);
+Route::get('topic/tags/{slug}', ['as' => 'topic.tags.index_with_slug', 'uses' => 'TopicTagsController@index']);

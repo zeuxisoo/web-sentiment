@@ -46,8 +46,12 @@
                         </span>
                     </div>
                     <div class="pull-right">
-                        @foreach($topic->tagNames() as $tag_name)
-                            <div class="label label-default"><i class="fa fa-tag fa-fw"></i>&nbsp;{{{ $tag_name }}}</div>
+                        @foreach($topic->tagged as $tag)
+                            <div class="label label-default">
+                                <i class="fa fa-tag fa-fw"></i>&nbsp;
+                                <a href="{{ route('topic.tags.index_with_slug', ['name' => rawurlencode($tag->tag_slug)]) }}" class="text-white">{{{ $tag->tag_name }}}</a>
+                            </div>
+                            &nbsp;
                         @endforeach
                     </div>
                 </div>

@@ -39,3 +39,8 @@ Route::get('topic/category/{code}', ['as' => 'topic.category.index_with_code', '
 // Topic tags routes
 Route::get('topic/tags',        ['as' => 'topic.tags.index',           'uses' => 'TopicTagsController@index']);
 Route::get('topic/tags/{slug}', ['as' => 'topic.tags.index_with_slug', 'uses' => 'TopicTagsController@index']);
+
+// Search routes
+Route::get('search',        ['as' => 'search.index',  'uses' => 'SearchController@index']);
+Route::post('search',       ['as' => 'search.index',  'uses' => 'SearchController@index']);
+Route::get('search/result', ['as' => 'search.result', 'uses' => 'SearchController@result']);

@@ -6,6 +6,7 @@ return [
         'latest'         => "Latest",
         'topic_category' => "Categories",
         'topic_tags'     => "Tags",
+        'search'         => "Search",
         'signin'         => "Sign in",
         'signup'         => "Sgin up",
         'error'          => "Error!",
@@ -109,5 +110,13 @@ return [
         'heading'           => "Topic Tag - :slug",
         'all_tags'          => "All tags",
         'no_related_topics' => "No related topics :)"
+    ],
+    'search' => [
+        'heading' => "Search",
+        'keyword' => "Keyword",
+        'submit'  => "Submit",
+
+        'result_heading'   => "Search Result - :keyword",
+        'result_not_found' => "No related results :)",
     ]
 ];

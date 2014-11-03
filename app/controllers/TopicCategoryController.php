@@ -2,6 +2,8 @@
 class TopicCategoryController extends BaseController {
 
     public function index($code = "") {
+        $code = rawurldecode($code);
+
         if (empty($code) === true) {
             $category = TopicCategory::first(['code']);
 

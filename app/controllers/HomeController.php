@@ -2,11 +2,11 @@
 class HomeController extends BaseController {
 
 	public function index() {
-        $latest_topics = Topic::latest()->take(5)->with('user', 'category')->get();
-        $hot_topics    = Topic::hot()->take(5)->with('user', 'category')->get();
+        $latest_topics = Topic::latest()->take(5)->with('user')->withCategoryCache(5)->get();
+        $hot_topics    = Topic::hot()->take(5)->with('user')->withCategoryCache(5)->get();
         $random_users  = User::random(6);
 
-		return View::make('homes.index', compact('latest_topics', 'hot_topics', 'random_users'));
+		return View::make('homes.index', compact('categories', 'latest_topics', 'hot_topics', 'random_users'));
 	}
 
     public function hot() {

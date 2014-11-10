@@ -36,6 +36,12 @@ class Topic extends Eloquent {
         return $query->orderBy('view_count', 'desc');
     }
 
+    public function scopeWithCategoryCache($query, $minutes = 10) {
+        return $query->with(['category' => function($query) {
+            $query->remember(10);
+        }]);
+    }
+
     public function coverImage() {
         if (File::exists($this->coverImagePath()) === true && File::isFile($this->coverImagePath()) === true) {
             return asset('/attachments/cover/'.$this->cover);

@@ -35,7 +35,7 @@ class User extends Eloquent implements ConfideUserInterface {
         $amount = $items->count() > $amount ? $amount : $items->count();
         $users  = $items->random($amount);
 
-        if (is_array($users) === false) {
+        if (is_array($users) === false && $users !== null) {
             return [$users];
         }else{
             return $users;

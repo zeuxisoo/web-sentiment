@@ -28,37 +28,38 @@
                     <div class="topic-description text-muted">
                         {{{ $topic->description }}}
                     </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('views.topic.current_vote_stat') }}</div>
-                <div class="panel-body">
-                    <div class="pull-left">
-                        <span class="btn btn-info">
-                            {{ trans('views.topic.voted') }} <span class="badge">{{{ $topic->vote_count }}}</span>
-                        </span>
-                        <span class="btn btn-success">
-                            {{ trans('views.topic.answer_a') }} <span class="badge">{{{ $vote_count->answer_a_count ?: 0 }}}</span>
-                        </span>
-                        <span class="btn btn-danger">
-                            {{ trans('views.topic.answer_b') }} <span class="badge">{{{ $vote_count->answer_b_count ?: 0 }}}</span>
-                        </span>
-                    </div>
-                    <div class="pull-right">
+                    <div class="topic-tags text-muted">
+                        <small>Tags: </small>
                         @foreach($topic->tagged as $tag)
-                            <div class="label label-default">
+                            <label class="label label-default">
                                 <i class="fa fa-tag fa-fw"></i>&nbsp;
                                 <a href="{{ route('topic.tags.index_with_slug', ['name' => rawurlencode($tag->tag_slug)]) }}" class="text-white">{{{ $tag->tag_name }}}</a>
-                            </div>
+                            </label>
                             &nbsp;
                         @endforeach
                     </div>
                 </div>
             </div>
 
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ trans('views.topic.current_vote_stat') }}</div>
+                <div class="panel-body">
+                    <div class="btn-group btn-group-justified">
+                        <span class="btn btn-info btn-group">
+                            {{ trans('views.topic.voted') }} <span class="badge">{{{ $topic->vote_count }}}</span>
+                        </span>
+                        <span class="btn btn-success btn-group">
+                            {{ trans('views.topic.answer_a') }} <span class="badge">{{{ $vote_count->answer_a_count ?: 0 }}}</span>
+                        </span>
+                        <span class="btn btn-danger btn-group">
+                            {{ trans('views.topic.answer_b') }} <span class="badge">{{{ $vote_count->answer_b_count ?: 0 }}}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
                             <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'a']) }}" class="btn btn-success">
@@ -83,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
                             <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'b']) }}" class="btn btn-danger">

@@ -35,6 +35,10 @@
     padding-top: 15px;
 }
 
+#topic-show .topic-tags {
+    padding-top: 20px;
+}
+
 #topic-show .alert-comment {
     margin-bottom: 0px;
 }

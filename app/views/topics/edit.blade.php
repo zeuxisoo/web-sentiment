@@ -20,9 +20,9 @@
                                 <div class="form-group">
                                     <label for="category" class="col-sm-2 control-label">{{ trans('views.topic.category') }}</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="category_id">
+                                        <select class="form-control" name="topic_category_id">
                                             @foreach($categories as $category)
-                                                @if ($topic->category_id === $category->id)
+                                                @if ($topic->topic_category_id === $category->id)
                                                     <option value="{{ $category->id }}" selected="selected">{{ $category->name }}</option>
                                                 @else
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>

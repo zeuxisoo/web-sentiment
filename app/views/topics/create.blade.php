@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label for="category" class="col-sm-2 control-label">{{ trans('views.topic.category') }}</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="category_id">
+                                <select class="form-control" name="topic_category_id">
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach

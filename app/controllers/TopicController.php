@@ -17,14 +17,14 @@ class TopicController extends BaseController {
 
 	public function store() {
 		$validator = Validator::make(Input::all(), [
-			'subject'        => 'required',
-			'category_id'    => 'required|exists:topic_category,id',
-			'description'    => 'required',
-			'answer_a_text'  => 'required',
-			'answer_b_text'  => 'required',
-			'cover'          => 'image',
-			'answer_a_image' => 'image',
-			'answer_b_image' => 'image',
+			'subject'           => 'required',
+			'topic_category_id' => 'required|exists:topic_category,id',
+			'description'       => 'required',
+			'answer_a_text'     => 'required',
+			'answer_b_text'     => 'required',
+			'cover'             => 'image',
+			'answer_a_image'    => 'image',
+			'answer_b_image'    => 'image',
 		]);
 
 		if ($validator->fails()) {
@@ -61,7 +61,7 @@ class TopicController extends BaseController {
 			}
 
 			$input_data = array_merge(
-				Input::only('subject', 'category_id', 'description', 'answer_a_text', 'answer_b_text'),
+				Input::only('subject', 'topic_category_id', 'description', 'answer_a_text', 'answer_b_text'),
 				[
 					'user_id'        => Auth::user()->id,
 					'cover'          => $cover ? $cover->basename : "",
@@ -122,14 +122,14 @@ class TopicController extends BaseController {
 			return Redirect::route('topic.show', ['id' => $topic->id])->withError(trans('controllers.topic.not_topic_owner'));
 		}else{
 			$validator = Validator::make(Input::all(), [
-				'subject'        => 'required',
-				'category_id'    => 'required|exists:topic_category,id',
-				'description'    => 'required',
-				'answer_a_text'  => 'required',
-				'answer_b_text'  => 'required',
-				'cover'          => 'image',
-				'answer_a_image' => 'image',
-				'answer_b_image' => 'image',
+				'subject'           => 'required',
+				'topic_category_id' => 'required|exists:topic_category,id',
+				'description'       => 'required',
+				'answer_a_text'     => 'required',
+				'answer_b_text'     => 'required',
+				'cover'             => 'image',
+				'answer_a_image'    => 'image',
+				'answer_b_image'    => 'image',
 			]);
 
 			if ($validator->fails()) {
@@ -178,7 +178,7 @@ class TopicController extends BaseController {
 				}
 
 				$input_data = array_merge(
-					Input::only('subject', 'category_id', 'description', 'answer_a_text', 'answer_b_text'),
+					Input::only('subject', 'topic_category_id', 'description', 'answer_a_text', 'answer_b_text'),
 					[
 						'cover'          => $cover ? $cover->basename : $topic->cover,
 						'answer_a_image' => $answer_a_image ? $answer_a_image->basename : $topic->answer_a_image,

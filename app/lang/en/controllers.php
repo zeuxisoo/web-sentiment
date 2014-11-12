@@ -11,7 +11,7 @@ return [
         'not_topic_owner' => "You are not the topic owner",
         'update_success'  => "Topic updated",
 
-        'vote_success'    => "Voice success",
+        'vote_success'    => "Vote success",
         'only_vote_once'  => "You have already voted for this topic",
     ],
     'user' => [

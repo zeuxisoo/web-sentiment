@@ -59,7 +59,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-6 col-xs-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
                             <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'a']) }}" class="btn btn-success">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-6 col-xs-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
                             <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'b']) }}" class="btn btn-danger">

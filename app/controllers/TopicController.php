@@ -41,7 +41,13 @@ class TopicController extends BaseController {
 				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
 				$filePath  = $attachment_path.'/cover/'.$fileName;
 
-				$cover = Image::make($cover)->resize(64, 64)->save($filePath, 100);
+				$cover = Image::canvas(64, 64, '#FFFFFF')->insert(
+					Image::make($cover)->resize(64, null, function ($constraint) {
+	    				$constraint->aspectRatio();
+	    				$constraint->upsize();
+					}),
+					'center'
+				)->save($filePath, 100);
 			}
 
 			if ($answer_a_image) {
@@ -49,7 +55,13 @@ class TopicController extends BaseController {
 				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
 				$filePath  = $attachment_path.'/answer_image/a/'.$fileName;
 
-				$answer_a_image = Image::make($answer_a_image)->resize(530, 530)->save($filePath, 100);
+				$answer_a_image = Image::canvas(530, 530, '#FFFFFF')->insert(
+					Image::make($answer_a_image)->resize(530, null, function ($constraint) {
+	    				$constraint->aspectRatio();
+	    				$constraint->upsize();
+					}),
+					'center'
+				)->save($filePath, 100);
 			}
 
 			if ($answer_b_image) {
@@ -57,7 +69,13 @@ class TopicController extends BaseController {
 				$fileName  = sprintf("%s_%s.%s", date("YmdHis"), str_random(12), $extension);
 				$filePath  = $attachment_path.'/answer_image/b/'.$fileName;
 
-				$answer_b_image = Image::make($answer_b_image)->resize(530, 530)->save($filePath, 100);
+				$answer_b_image = Image::canvas(530, 530, '#FFFFFF')->insert(
+					Image::make($answer_b_image)->resize(530, null, function ($constraint) {
+	    				$constraint->aspectRatio();
+	    				$constraint->upsize();
+					}),
+					'center'
+				)->save($filePath, 100);
 			}
 
 			$input_data = array_merge(

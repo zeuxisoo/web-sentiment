@@ -6,7 +6,7 @@ return [
     'topic' => [
         'create_success'  => "Topic created",
 
-        'comment_success' => "Comemnt saved",
+        'comment_success' => "Comment saved",
 
         'not_topic_owner' => "You are not the topic owner",
         'update_success'  => "Topic updated",

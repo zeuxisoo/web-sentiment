@@ -62,7 +62,7 @@
                 <div class="col-md-6 col-xs-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'a']) }}" class="btn btn-success">
+                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'a']) }}" class="btn btn-success" data-sweet-confirm="Are you sure vote for it?">
                                 {{{ $topic->answer_a_text }}}
                             </a>
 
@@ -87,7 +87,7 @@
                 <div class="col-md-6 col-xs-6">
                     <div class="panel panel-default">
                         <div class="panel-body text-center">
-                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'b']) }}" class="btn btn-danger">
+                            <a href="{{ route('topic.vote', ['id' => $topic->id, 'answer' => 'b']) }}" class="btn btn-danger" data-sweet-confirm="Are you sure vote for it?">
                                 {{{ $topic->answer_b_text }}}
                             </a>
 

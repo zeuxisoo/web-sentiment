@@ -9,6 +9,7 @@
 <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/tag-it/css/jquery.tagit.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/tag-it/css/tagit.ui-zendesk.css') }}" rel="stylesheet" media="screen">
+<link href="{{ asset('assets/vendor/sweetalert/sweet-alert.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/client/css/default.css') }}" rel="stylesheet" media="screen">
 <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -16,6 +17,7 @@
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-filestyle.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/tag-it/js/tag-it.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/sweetalert/sweet-alert.min.js') }}"></script>
 <script src="{{ asset('assets/client/js/default.js') }}"></script>
 </head>
 <body>

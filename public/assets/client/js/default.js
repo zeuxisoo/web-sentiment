@@ -26,8 +26,27 @@
             }
         });
 
-        //
+        // Topic tags
         $("#tags").tagit();
+
+        // Sweet alert
+        $("a[data-sweet-confirm]").on('click', function(e) {
+            e.preventDefault();
+
+            var href = $(this).prop('href');
+
+            sweetAlert({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: true
+            }, function(){
+                window.location = href;
+            });
+        });
     });
 
 })(jQuery);

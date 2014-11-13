@@ -137,7 +137,7 @@
                                 <hr>
                             @endif
 
-                            <div class="media" id="topic-show-comment-id-{{ $comment->id }}">
+                            <div class="media" id="topic-comment-{{ $comment->id }}">
                                 <a class="pull-left" href="#">
                                     <img class="media-object img-rounded" src="{{ $comment->user->avatar(32) }}">
                                 </a>

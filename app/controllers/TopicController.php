@@ -234,9 +234,9 @@ class TopicController extends BaseController {
 				]
 			);
 
-			TopicComment::create($input_data);
+			$topic_comment = TopicComment::create($input_data);
 
-			return Redirect::back()->withNotice(trans('controllers.topic.comment_success'));
+			return Redirect::to(URL::previous().'#topic-comment-'.$topic_comment->id)->withNotice(trans('controllers.topic.comment_success'));
 		}
 	}
 

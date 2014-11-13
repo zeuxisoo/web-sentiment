@@ -73,7 +73,7 @@
                             <hr>
 
                             @if (File::exists($topic->answerAImagePath()) === true && File::isFile($topic->answerAImagePath()) === true)
-                                <a href="#" class="thumbnail">
+                                <a href="{{{ $topic->answerAImage() }}}" class="thumbnail swipebox" title="{{{ $topic->answer_a_text }}}">
                                     <img src="{{{ $topic->answerAImage() }}}" class="img-rounded">
                                 </a>
                             @else
@@ -97,7 +97,7 @@
 
                             <hr>
                             @if (File::exists($topic->answerBImagePath()) === true && File::isFile($topic->answerBImagePath()) === true)
-                                <a href="#" class="thumbnail">
+                                <a href="{{{ $topic->answerBImage() }}}" class="thumbnail swipebox" title="{{{ $topic->answer_b_text }}}">
                                     <img src="{{{ $topic->answerBImage() }}}" class="img-rounded">
                                 </a>
                             @else

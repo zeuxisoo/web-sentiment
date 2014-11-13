@@ -47,6 +47,9 @@
                 window.location = href;
             });
         });
+
+        // Swipe box
+        $('a.swipebox').swipebox();
     });
 
 })(jQuery);

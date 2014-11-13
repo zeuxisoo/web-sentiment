@@ -3,8 +3,16 @@
 <head>
 <meta charset='utf-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Dummy</title>
+<title>
+    @if (trim($__env->yieldContent('title')))
+        @yield('title') -
+    @endif
+    Dummy
+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@yield('ogmeta')
+
 <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/bootstrap-social/bootstrap-social.css') }}" rel="stylesheet" media="screen">
 <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">

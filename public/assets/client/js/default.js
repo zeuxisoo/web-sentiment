@@ -37,11 +37,11 @@
 
             sweetAlert({
                 title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                text: "You will not be able to recover this vote action!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
+                confirmButtonText: "Yes, vote it!",
                 closeOnConfirm: true
             }, function(){
                 window.location = href;

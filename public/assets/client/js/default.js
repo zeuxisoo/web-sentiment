@@ -49,7 +49,9 @@
         });
 
         // Swipe box
-        $('a.swipebox').swipebox();
+        $('a.swipebox').swipebox({
+            hideBarsDelay: 0
+        });
     });
 
 })(jQuery);

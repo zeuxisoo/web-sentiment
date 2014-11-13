@@ -69,3 +69,12 @@ a:hover.text-white {
     color: #8DCBFF;
     text-decoration: none;
 }
+
+/**/
+#swipebox-action.visible-bars {
+    display: block !important;
+}
+
+#swipebox-caption.visible-bars {
+    display: block !important;
+}

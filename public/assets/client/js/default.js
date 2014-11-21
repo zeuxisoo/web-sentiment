@@ -52,15 +52,11 @@
         $('a.swipebox').swipebox({
             hideBarsDelay: 0
         });
-
-        // Turbolink and PJAX
-        $(document).pjax('a', 'body');
-        $(document).on('pjax:start', function() {
-            NProgress.start();
-        });
-        $(document).on('pjax:end', function() {
-            NProgress.done();
-        });
     });
+
+    // Turbolink and PJAX
+    $(document).on('page:fetch',   function() { NProgress.start(); });
+    $(document).on('page:change',  function() { NProgress.done(); });
+    $(document).on('page:restore', function() { NProgress.remove(); });
 
 })(jQuery);

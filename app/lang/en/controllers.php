@@ -23,5 +23,10 @@ return [
         'access_denied'            => "Please grant access premission first",
         'token_response_exception' => "Invalid access token",
         'unknown_exception'        => "Unknown exception"
-    ]
+    ],
+    'message' => [
+        'create_success' => "Message sent",
+        'unread_success' => "Mark as unread success",
+        'delete_success' => "Message deleted",
+    ],
 ];

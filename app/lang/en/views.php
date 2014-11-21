@@ -7,6 +7,7 @@ return [
         'topic_category' => "Categories",
         'topic_tags'     => "Tags",
         'search'         => "Search",
+        'message'        => "Message",
         'signin'         => "Sign in",
         'signup'         => "Sgin up",
         'error'          => "Error!",
@@ -119,5 +120,28 @@ return [
 
         'result_heading'   => "Search Result - :keyword",
         'result_not_found' => "No related results :)",
+    ],
+    'message' => [
+        'menu_heading'  => "Menu",
+        'panel_heading' => "Panel",
+
+        'inbox'   => "Inbox",
+        'compose' => "Compose",
+
+        'username' => "Username",
+        'subject'  => "Subject",
+        'content'  => "Content",
+        'submit'   => "Send",
+
+        'sender' => "Sender",
+        'time'   => "Receive At",
+        'action' => "Action",
+        'read'   => "Read",
+
+        'from_user'  => "From user",
+        'receive_at' => "Receive At",
+        'unread'     => "UnRead",
+        'reply'      => "Reply",
+        'delete'     => "delete",
     ]
 ];

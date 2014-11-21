@@ -44,3 +44,11 @@ Route::get('topic/tags/{slug}', ['as' => 'topic.tags.index_with_slug', 'uses' =>
 Route::get('search',        ['as' => 'search.index',  'uses' => 'SearchController@index']);
 Route::post('search',       ['as' => 'search.index',  'uses' => 'SearchController@index']);
 Route::get('search/result', ['as' => 'search.result', 'uses' => 'SearchController@result']);
+
+// Message routes
+Route::get('message',                     ['as' => 'message.index',  'uses' => "MessageController@index"]);
+Route::get('message/create',              ['as' => 'message.create', 'uses' => "MessageController@create"]);
+Route::post('message/store',              ['as' => 'message.store',  'uses' => "MessageController@store"]);
+Route::get('message/show/{message_id}',   ['as' => 'message.show',   'uses' => "MessageController@show"]);
+Route::get('message/delete/{message_id}', ['as' => 'message.delete', 'uses' => "MessageController@delete"]);
+Route::get('message/unread/{message_id}', ['as' => 'message.unread', 'uses' => "MessageController@unread"]);

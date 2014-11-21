@@ -9,7 +9,8 @@
 		"thomaswelton/laravel-gravatar": "~0.1",
 		"intervention/image": "~2.0",
 		"rtconner/laravel-tagging": "0.4.*",
-		"artdarek/oauth-4-laravel": "~1.0"
+		"artdarek/oauth-4-laravel": "~1.0",
+		"rcrowe/turbo": "~0.3"
 	},
 	"autoload": {
 		"classmap": [

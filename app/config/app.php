@@ -127,6 +127,7 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
 		'Conner\Tagging\TaggingServiceProvider',
 		'Artdarek\OAuth\OAuthServiceProvider',
+		'Turbo\Provider\Laravel\TurboServiceProvider',
 
 		'Barryvdh\Debugbar\ServiceProvider',
 	),

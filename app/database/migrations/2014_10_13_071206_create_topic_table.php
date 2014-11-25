@@ -26,6 +26,7 @@ class CreateTopicTable extends Migration {
 			$table->string('answer_b_image', 64)->nullable();
 			$table->mediumInteger('view_count')->unsigned()->default(0);
 			$table->mediumInteger('vote_count')->unsigned()->default(0);
+			$table->string('status', 10)->default('public');
 			$table->softDeletes();
 			$table->timestamps();
 		});

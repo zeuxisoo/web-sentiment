@@ -4,8 +4,12 @@ use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Topic extends Eloquent {
 
+    const STATUS_PUBLIC    = 'public';
+    const STATUS_PROTECTED = 'protected';
+
     use SoftDeletingTrait;
     use TaggableTrait;
+    use TopicStatusTrait;
 
     protected $table = 'topic';
 

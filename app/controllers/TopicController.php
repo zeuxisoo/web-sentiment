@@ -299,6 +299,10 @@ class TopicController extends BaseController {
 					'topic_id' => $topic->id,
 				]);
 			}else{
+				// Make topic is protected, not show in list
+				$topic->status = 'protected';
+				$topic->save();
+
 				Mail::send('emails.topic.report', compact('topic'), function($message) use ($sentiment_report_configs, $topic) {
 					$message->to($sentiment_report_configs['mail_to'], 'Webmaster')->subject('Topic report in '.$topic->id);
 				});

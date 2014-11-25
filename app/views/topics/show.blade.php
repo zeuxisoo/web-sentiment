@@ -33,10 +33,10 @@
                         <i class="fa fa-clock-o"></i>&nbsp;
                         {{{ $topic->created_at->diffForHumans() }}}&nbsp;
 
-                        <i class="fa fa-ban"></i>&nbsp;
-                        <a href="{{ route('topic.report', ['id' => $topic->id]) }}">{{ trans('views.topic.report') }}</a>
-
                         @if (Auth::user() && Auth::user()->id === $topic->user->id)
+                            <i class="fa fa-ban"></i>&nbsp;
+                            <a href="{{ route('topic.report', ['id' => $topic->id]) }}">{{ trans('views.topic.report') }}</a>
+
                             <i class="fa fa-pencil-square-o"></i>&nbsp;
                             <a href="{{ route('topic.edit', ['id' => $topic->id]) }}">{{ trans('views.topic.edit') }}</a>
 

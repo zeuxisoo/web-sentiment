@@ -213,7 +213,15 @@ class TopicController extends BaseController {
 	}
 
 	public function destroy($id) {
+		$topic = Topic::with('User')->findOrFail($id);
 
+		if ($topic->user_id !== Auth::user()->id) {
+			return Redirect::route('topic.show', ['id' => $topic->id])->withError(trans('controllers.topic.not_topic_owner'));
+		}else{
+			$topic->delete();
+
+			return Redirect::route('home.index')->withNotice(trans('controllers.topic.destroy_success'));
+		}
 	}
 
 	public function comment($id) {

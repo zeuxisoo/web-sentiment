@@ -1,8 +1,10 @@
 <?php
 use Conner\Tagging\TaggableTrait;
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Topic extends Eloquent {
 
+    use SoftDeletingTrait;
     use TaggableTrait;
 
     protected $table = 'topic';
@@ -11,6 +13,8 @@ class Topic extends Eloquent {
         'user_id', 'topic_category_id', 'subject', 'cover', 'description',
         'answer_a_text', 'answer_b_text', 'answer_a_image', 'answer_b_image'
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function user() {
         return $this->belongsTo('User');

@@ -24,6 +24,7 @@ Route::get('topic/edit/{id}',          ['as' => 'topic.edit',    'uses' => 'Topi
 Route::post('topic/update/{id}',       ['as' => 'topic.update',  'uses' => 'TopicController@update']);
 Route::get('topic/vote/{id}/{answer}', ['as' => 'topic.vote',    'uses' => 'TopicController@vote']);
 Route::get('topic/report/{id}',        ['as' => 'topic.report',  'uses' => 'TopicController@report']);
+Route::get('topic/destroy/{id}',       ['as' => 'topic.destroy', 'uses' => 'TopicController@destroy']);
 
 // User routes
 Route::get('user/profile/{username}', ['as' => 'user.profile', 'uses' => 'UserController@profile']);

@@ -16,6 +16,8 @@ return [
 
         'report_success'   => "Report success",
         'only_report_once' => "You have already reported for this topic",
+
+        'destroy_success'  => "Topic deleted",
     ],
     'user' => [
         'update_profile_success'  => "Profile updated",

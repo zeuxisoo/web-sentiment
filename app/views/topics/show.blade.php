@@ -39,6 +39,9 @@
                         @if (Auth::user() && Auth::user()->id === $topic->user->id)
                             <i class="fa fa-pencil-square-o"></i>&nbsp;
                             <a href="{{ route('topic.edit', ['id' => $topic->id]) }}">{{ trans('views.topic.edit') }}</a>
+
+                            <i class="fa fa-remove"></i>&nbsp;
+                            <a href="{{ route('topic.destroy', ['id' => $topic->id]) }}">{{ trans('views.topic.destroy') }}</a>
                         @endif
                     </div>
                     <div class="topic-description text-muted">

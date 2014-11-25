@@ -59,6 +59,8 @@ return [
 
         'report'            => "Report",
 
+        'destroy'           => "Delete",
+
         'update'            => "Update",
         'no_images'         => "No images",
 

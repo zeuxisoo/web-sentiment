@@ -266,4 +266,38 @@ class TopicController extends BaseController {
 		}
 	}
 
+	public function report($id) {
+		$topic = Topic::with('User')->findOrFail($id);
+
+		Validator::extend('only_report_once', function($attribute, $value, $parameters) use ($topic) {
+			return TopicReport::topicAndUser($topic, Auth::user())->count() <= 0;
+		});
+
+		$validator = Validator::make(Route::getCurrentRoute()->parameters(), [
+			'id' => 'only_report_once',
+		], [
+			'only_report_once' => trans('controllers.topic.only_report_once')
+		]);
+
+		if ($validator->fails()) {
+			return Redirect::route('topic.show', ['id' => $topic->id])->withErrors($validator)->withInput();
+		}else{
+			$sentiment_report_configs = Config::get('sentiment.report');
+			$total_report_number      = TopicReport::whereTopicId($topic->id)->count();
+
+			if ($total_report_number < $sentiment_report_configs['max_limit']) {
+				TopicReport::create([
+					'user_id'  => Auth::user()->id,
+					'topic_id' => $topic->id,
+				]);
+			}else{
+				Mail::send('emails.topic.report', compact('topic'), function($message) use ($sentiment_report_configs, $topic) {
+					$message->to($sentiment_report_configs['mail_to'], 'Webmaster')->subject('Topic report in '.$topic->id);
+				});
+			}
+
+			return Redirect::route('topic.show', ['id' => $topic->id])->withNotice(trans('controllers.topic.report_success'));
+		}
+	}
+
 }

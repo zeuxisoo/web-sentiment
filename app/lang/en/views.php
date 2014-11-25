@@ -57,6 +57,8 @@ return [
         'edit'              => "Edit",
         'edit_topic'        => "Edit topic",
 
+        'report'            => "Report",
+
         'update'            => "Update",
         'no_images'         => "No images",
 

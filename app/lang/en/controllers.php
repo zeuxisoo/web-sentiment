@@ -1,18 +1,21 @@
 <?php
 return [
     'home' => [
-        'welcome_message' => "Welcome, :username"
+        'welcome_message'  => "Welcome, :username"
     ],
     'topic' => [
-        'create_success'  => "Topic created",
+        'create_success'   => "Topic created",
 
-        'comment_success' => "Comment saved",
+        'comment_success'  => "Comment saved",
 
-        'not_topic_owner' => "You are not the topic owner",
-        'update_success'  => "Topic updated",
+        'not_topic_owner'  => "You are not the topic owner",
+        'update_success'   => "Topic updated",
 
-        'vote_success'    => "Vote success",
-        'only_vote_once'  => "You have already voted for this topic",
+        'vote_success'     => "Vote success",
+        'only_vote_once'   => "You have already voted for this topic",
+
+        'report_success'   => "Report success",
+        'only_report_once' => "You have already reported for this topic",
     ],
     'user' => [
         'update_profile_success'  => "Profile updated",

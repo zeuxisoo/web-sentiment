@@ -67,6 +67,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Strict Mode
+    |--------------------------------------------------------------------------
+    |
+    | Enabling strict mode will require clients to send a valid Accept header
+    | with every request. This also voids the default API version, meaning
+    | your API will not be browsable via a web browser.
+    |
+    */
+
+    'strict' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Authentication Providers
     |--------------------------------------------------------------------------
     |
@@ -83,34 +96,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Rate Limiting
+    | Throttling / Rate Limiting
     |--------------------------------------------------------------------------
     |
     | Consumers of your API can be limited to the amount of requests they can
-    | make. You can configure the limit based on whether the consumer is
-    | authenticated or unauthenticated.
-    |
-    | The "limit" is the number of requests the consumer can make within a
-    | certain amount time which is defined by "reset" in minutes.
-    |
-    | By default rate limiting is disabled.
+    | make. You can create your own throttles or simply change the default
+    | throttles. To disable rate limiting simply remove all throttles.
     |
     */
 
-    'rate_limiting' => [
-
-        'authenticated' => [
-            'limit' => 0,
-            'reset' => 60
-        ],
-
-        'unauthenticated' => [
-            'limit' => 0,
-            'reset' => 60
-        ],
-
-        'exceeded' => 'API rate limit has been exceeded.'
-
+    'throttling' => [
+        'authenticated'   => new Dingo\Api\Http\RateLimit\AuthenticatedThrottle(['limit' => 1000, 'expires' => 60]),
+        'unauthenticated' => new Dingo\Api\Http\RateLimit\UnauthenticatedThrottle(['limit' => 100, 'expires'  => 60])
     ],
 
     /*
@@ -147,7 +144,7 @@ return [
 
     'formats' => [
 
-        'json' => new Dingo\Api\Http\ResponseFormat\JsonResponseFormat
+        'json' => 'Dingo\Api\Http\ResponseFormat\JsonResponseFormat'
 
     ]
 

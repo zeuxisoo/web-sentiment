@@ -1,14 +1,14 @@
 <?php
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
-class AuthAPIController extends BaseController {
+class AuthAPIController extends BaseAPIController {
 
     public function login() {
         $repo  = App::make('AuthRepository');
         $input = Input::all();
 
         if ($repo->login($input)) {
-            return Response::api()->withItem(Auth::user(), new UserTransformer);
+            return $this->response->item(Auth::user(), new UserTransformer);
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');
@@ -20,6 +20,12 @@ class AuthAPIController extends BaseController {
 
             throw new AccessDeniedHttpException($err_msg);
         }
+    }
+
+    public function logout() {
+        Confide::logout();
+
+        return $this->sendOK("logout success");
     }
 
 }

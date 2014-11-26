@@ -129,7 +129,7 @@ return array(
 		'Artdarek\OAuth\OAuthServiceProvider',
 		'Turbo\Provider\Laravel\TurboServiceProvider',
 
-		'Dingo\Api\ApiServiceProvider',
+		'Dingo\Api\Provider\ApiServiceProvider',
 
 		'Barryvdh\Debugbar\ServiceProvider',
 	),

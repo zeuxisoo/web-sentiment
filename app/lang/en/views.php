@@ -8,6 +8,7 @@ return [
         'topic_tags'     => "Tags",
         'search'         => "Search",
         'message'        => "Message",
+        'bookmark'       => "Bookmark",
         'signin'         => "Sign in",
         'signup'         => "Sgin up",
         'error'          => "Error!",
@@ -60,6 +61,9 @@ return [
         'report'            => "Report",
 
         'destroy'           => "Delete",
+
+        'bookmark'          => "Bookmark",
+        'unbookmark'        => "UnBookmark",
 
         'update'            => "Update",
         'no_images'         => "No images",
@@ -147,5 +151,8 @@ return [
         'unread'     => "UnRead",
         'reply'      => "Reply",
         'delete'     => "delete",
+    ],
+    'bookmark' => [
+        'index_heading' => 'Bookmarked topics',
     ]
 ];

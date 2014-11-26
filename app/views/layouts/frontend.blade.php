@@ -56,6 +56,7 @@
                 <li><a href="{{ route('topic.tags.index') }}">{{ trans('views.frontend.topic_tags') }}</a></li>
                 <li><a href="{{ route('search.index') }}">{{ trans('views.frontend.search') }}</a></li>
                 <li><a href="{{ route('message.index') }}">{{ trans('views.frontend.message') }}</a></li>
+                <li><a href="{{ route('bookmark.index') }}">{{ trans('views.frontend.bookmark') }}</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())

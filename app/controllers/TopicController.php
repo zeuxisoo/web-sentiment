@@ -117,7 +117,10 @@ class TopicController extends BaseController {
         	Session::put('viewed_topic_ids', $viewed_topic_ids);
         }
 
-		return View::make('topics.show', compact('topic', 'comments', 'my_vote', 'vote_count'));
+        // Is bookmarked
+        $is_bookarmked = Bookmark::topicAndUser($topic, Auth::user())->count() > 0;
+
+		return View::make('topics.show', compact('topic', 'comments', 'my_vote', 'vote_count', 'is_bookarmked'));
 	}
 
 	public function edit($id) {

@@ -34,4 +34,10 @@ return [
         'unread_success' => "Mark as unread success",
         'delete_success' => "Message deleted",
     ],
+    'bookmark' => [
+        'only_bookmark_once' => "The topic already bookmarked",
+        'bookmark_success'   => "Bookmark success",
+        'not_bookmark_owner' => "You are not the bookmark owner",
+        'bookmark_deleted'   => "Bookmark deleted",
+    ]
 ];

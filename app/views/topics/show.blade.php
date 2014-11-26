@@ -34,6 +34,14 @@
                         {{{ $topic->created_at->diffForHumans() }}}&nbsp;
 
                         @if (Auth::user())
+                            @if ($is_bookarmked === true)
+                                <i class="fa fa-bookmark"></i>&nbsp;
+                                <a href="{{ route('bookmark.destory', ['topic_id' => $topic->id]) }}">{{ trans('views.topic.unbookmark') }}</a>&nbsp;
+                            @else
+                                <i class="fa fa-bookmark-o"></i>&nbsp;
+                                <a href="{{ route('bookmark.create', ['topic_id' => $topic->id]) }}">{{ trans('views.topic.bookmark') }}</a>&nbsp;
+                            @endif
+
                             <i class="fa fa-ban"></i>&nbsp;
                             <a href="{{ route('topic.report', ['id' => $topic->id]) }}">{{ trans('views.topic.report') }}</a>&nbsp;
                         @endif

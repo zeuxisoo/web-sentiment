@@ -54,3 +54,8 @@ Route::post('message/store',              ['as' => 'message.store',  'uses' => "
 Route::get('message/show/{message_id}',   ['as' => 'message.show',   'uses' => "MessageController@show"]);
 Route::get('message/delete/{message_id}', ['as' => 'message.delete', 'uses' => "MessageController@delete"]);
 Route::get('message/unread/{message_id}', ['as' => 'message.unread', 'uses' => "MessageController@unread"]);
+
+// Bookmark routes
+Route::get('bookmark/index',              ['as' => 'bookmark.index',   'uses' => "BookmarkController@index"]);
+Route::get('bookmark/create/{topic_id}',  ['as' => 'bookmark.create',  'uses' => "BookmarkController@create"]);
+Route::get('bookmark/destory/{topic_id}', ['as' => 'bookmark.destory', 'uses' => "BookmarkController@destory"]);

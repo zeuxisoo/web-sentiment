@@ -18,6 +18,7 @@
 			"app/commands",
 			"app/controllers",
 			"app/controllers/api",
+			"app/controllers/api/transformers",
 			"app/models",
 			"app/models/scopes",
 			"app/models/traits",

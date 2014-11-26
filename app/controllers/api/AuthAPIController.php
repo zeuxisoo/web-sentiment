@@ -8,7 +8,7 @@ class AuthAPIController extends BaseController {
         $input = Input::all();
 
         if ($repo->login($input)) {
-            return Auth::user()->toAPI();
+            return Response::api()->withItem(Auth::user(), new UserTransformer);
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');

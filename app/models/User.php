@@ -42,13 +42,4 @@ class User extends Eloquent implements ConfideUserInterface {
         }
     }
 
-    public function toAPI() {
-        return [
-            'id'        => $this->id,
-            'username'  => $this->username,
-            'email'     => $this->email,
-            'confirmed' => $this->confirmed,
-        ];
-    }
-
 }

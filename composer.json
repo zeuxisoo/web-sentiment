@@ -10,12 +10,14 @@
 		"intervention/image": "~2.0",
 		"rtconner/laravel-tagging": "0.4.*",
 		"artdarek/oauth-4-laravel": "~1.0",
-		"rcrowe/turbo": "~0.3"
+		"rcrowe/turbo": "~0.3",
+		"dingo/api": "~0.6"
 	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
+			"app/controllers/api",
 			"app/models",
 			"app/models/scopes",
 			"app/models/traits",

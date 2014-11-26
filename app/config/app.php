@@ -129,6 +129,8 @@ return array(
 		'Artdarek\OAuth\OAuthServiceProvider',
 		'Turbo\Provider\Laravel\TurboServiceProvider',
 
+		'Dingo\Api\ApiServiceProvider',
+
 		'Barryvdh\Debugbar\ServiceProvider',
 	),
 
@@ -201,6 +203,8 @@ return array(
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		'Image'           => 'Intervention\Image\Facades\Image',
 		'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
+
+		'API'             => 'Dingo\Api\Facades\API',
 
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 	),

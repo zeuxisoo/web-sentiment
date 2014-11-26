@@ -59,3 +59,8 @@ Route::get('message/unread/{message_id}', ['as' => 'message.unread', 'uses' => "
 Route::get('bookmark/index',              ['as' => 'bookmark.index',   'uses' => "BookmarkController@index"]);
 Route::get('bookmark/create/{topic_id}',  ['as' => 'bookmark.create',  'uses' => "BookmarkController@create"]);
 Route::get('bookmark/destory/{topic_id}', ['as' => 'bookmark.destory', 'uses' => "BookmarkController@destory"]);
+
+// API routes
+Route::api(['version' => 'v1', 'prefix' => 'api'], function() {
+    Route::post('auth/login', ['as' => 'api.auth.login', 'uses' => 'AuthAPIController@login']);
+});

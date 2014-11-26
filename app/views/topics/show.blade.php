@@ -33,15 +33,17 @@
                         <i class="fa fa-clock-o"></i>&nbsp;
                         {{{ $topic->created_at->diffForHumans() }}}&nbsp;
 
-                        @if (Auth::user() && Auth::user()->id === $topic->user->id)
+                        @if (Auth::user())
                             <i class="fa fa-ban"></i>&nbsp;
-                            <a href="{{ route('topic.report', ['id' => $topic->id]) }}">{{ trans('views.topic.report') }}</a>
+                            <a href="{{ route('topic.report', ['id' => $topic->id]) }}">{{ trans('views.topic.report') }}</a>&nbsp;
+                        @endif
 
+                        @if (Auth::user() && Auth::user()->id === $topic->user->id)
                             <i class="fa fa-pencil-square-o"></i>&nbsp;
-                            <a href="{{ route('topic.edit', ['id' => $topic->id]) }}">{{ trans('views.topic.edit') }}</a>
+                            <a href="{{ route('topic.edit', ['id' => $topic->id]) }}">{{ trans('views.topic.edit') }}</a>&nbsp;
 
                             <i class="fa fa-remove"></i>&nbsp;
-                            <a href="{{ route('topic.destroy', ['id' => $topic->id]) }}">{{ trans('views.topic.destroy') }}</a>
+                            <a href="{{ route('topic.destroy', ['id' => $topic->id]) }}">{{ trans('views.topic.destroy') }}</a>&nbsp;
                         @endif
                     </div>
                     <div class="topic-description text-muted">

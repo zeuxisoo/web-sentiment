@@ -204,7 +204,7 @@ return array(
 		'Image'           => 'Intervention\Image\Facades\Image',
 		'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
 
-		'API'             => 'Dingo\Api\Facades\API',
+		'API'             => 'Dingo\Api\Facade\API',
 
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 	),

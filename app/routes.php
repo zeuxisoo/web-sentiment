@@ -66,4 +66,5 @@ Route::api(['version' => 'v1', 'prefix' => 'api'], function() {
     Route::get('auth/logout', ['as' => 'api.auth.logout', 'uses' => 'AuthAPIController@logout']);
 
     Route::get('topic/list/{type}', ['as' => 'api.topic.list', 'uses' => 'TopicAPIController@index']);
+    Route::get('topic/show/{id}',   ['as' => 'api.topic.show', 'uses' => 'TopicAPIController@show']);
 });

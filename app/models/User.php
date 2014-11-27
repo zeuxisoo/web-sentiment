@@ -9,6 +9,7 @@ class User extends Eloquent implements ConfideUserInterface {
 
 	protected $table    = 'user';
     protected $fillable = ['username', 'password', 'email'];
+    protected $hidden   = ['password', 'confirmation_code', 'remember_token', 'confirmed'];
 
 	public function avatar($size = 20) {
 		return Gravatar::src($this->email, $size);

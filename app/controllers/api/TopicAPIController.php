@@ -60,7 +60,7 @@ class TopicAPIController extends BaseAPIController {
             $topic->vote_count    = $vote_count;
             $topic->is_bookarmked = $is_bookarmked;
 
-            return $this->response->item($topic, new TopicTransformer);
+            return $this->response->item($topic, new SingleObjectTransformer);
         }catch(ModelNotFoundException $e) {
             throw new ResourceException('Can not found related topic');
         }

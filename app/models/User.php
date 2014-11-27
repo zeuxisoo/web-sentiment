@@ -1,11 +1,13 @@
 <?php
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Confide\ConfideUserInterface;
+use Zizaco\Entrust\HasRole;
 use Illuminate\Database\Eloquent\Collection;
 
 class User extends Eloquent implements ConfideUserInterface {
 
 	use ConfideUser;
+    use HasRole;
 
 	protected $table    = 'user';
     protected $fillable = ['username', 'password', 'email'];

@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Zizaco\Confide\ServiceProvider',
+		'Zizaco\Entrust\EntrustServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 		'Conner\Tagging\TaggingServiceProvider',
@@ -200,6 +201,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Confide'         => 'Zizaco\Confide\Facade',
+		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		'Image'           => 'Intervention\Image\Facades\Image',
 		'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',

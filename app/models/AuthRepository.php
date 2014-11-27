@@ -19,6 +19,9 @@ class AuthRepository {
         // Save if valid. Password field will be hashed before save
         $this->save($user);
 
+        // Attach role (User)
+        $user->attachRole(Role::find(1));
+
         return $user;
     }
 

@@ -27,7 +27,22 @@ App::before(function($request)
        '198.41.128.0/17',
        '162.158.0.0/15',
        '104.16.0.0/12',
-   ]);
+    ]);
+
+    if (Auth::user() && Auth::user()->hasRole('Banned') === true) {
+        Confide::logout();
+
+        if (Request::ajax())
+        {
+            return Response::make('Account Banned', 401);
+        }
+        else
+        {
+            return Redirect::route('auth.login')->withErrors([
+                'message' => trans('controllers.filters.account_banned')
+            ]);
+        }
+    }
 });
 
 

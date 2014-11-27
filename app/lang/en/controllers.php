@@ -39,5 +39,8 @@ return [
         'bookmark_success'   => "Bookmark success",
         'not_bookmark_owner' => "You are not the bookmark owner",
         'bookmark_deleted'   => "Bookmark deleted",
+    ],
+    'filters'  => [
+        'account_banned' => 'Account banned',
     ]
 ];

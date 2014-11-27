@@ -64,4 +64,6 @@ Route::get('bookmark/destory/{topic_id}', ['as' => 'bookmark.destory', 'uses' =>
 Route::api(['version' => 'v1', 'prefix' => 'api'], function() {
     Route::post('auth/login', ['as' => 'api.auth.login',  'uses' => 'AuthAPIController@login']);
     Route::get('auth/logout', ['as' => 'api.auth.logout', 'uses' => 'AuthAPIController@logout']);
+
+    Route::get('topic/list/{type}', ['as' => 'api.topic.list', 'uses' => 'TopicAPIController@index']);
 });

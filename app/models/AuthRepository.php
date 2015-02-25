@@ -17,10 +17,12 @@ class AuthRepository {
         $user->confirmation_code     = md5(uniqid(mt_rand(), true));
 
         // Save if valid. Password field will be hashed before save
-        $this->save($user);
+        $save_status = $this->save($user);
 
         // Attach role (User)
-        $user->attachRole(Role::find(1));
+        if ($save_status === true) {
+            $user->attachRole(Role::find(1));
+        }
 
         return $user;
     }

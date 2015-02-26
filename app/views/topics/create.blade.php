@@ -25,12 +25,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="cover" class="col-sm-2 control-label">{{ trans('views.topic.cover') }}</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control file-input" id="cover" name="cover" placeholder="{{ trans('views.topic.cover') }}" value="{{ Input::old('cover') }}">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="description" class="col-sm-2 control-label">{{ trans('views.topic.description') }}</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="description" name="description" rows="5">{{ Input::old('description') }}</textarea>

@@ -1,7 +1,10 @@
 <div class="topic">
     <div class="media">
         <a class="pull-left" href="{{ route('topic.show', ['id' => $topic->id]) }}">
-            <img class="media-object" src="{{ $topic->coverImage() }}" alt="{{{ $topic->subject }}}">
+            <div class="media-object">
+                <img src="{{ $topic->ensureACover() }}" alt="{{{ $topic->subject }}}">
+                <img src="{{ $topic->ensureBCover() }}" alt="{{{ $topic->subject }}}">
+            </div>
         </a>
         <div class="media-body">
             <h4 class="media-heading">

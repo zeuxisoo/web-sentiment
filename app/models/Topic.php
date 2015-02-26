@@ -50,9 +50,17 @@ class Topic extends Eloquent {
         }]);
     }
 
-    public function coverImage() {
-        if (File::exists($this->coverImagePath()) === true && File::isFile($this->coverImagePath()) === true) {
-            return asset('/attachments/cover/'.$this->cover);
+    public function ensureACover() {
+        if (File::exists($this->coverAImagePath()) === true && File::isFile($this->coverAImagePath()) === true) {
+            return $this->coverAImage();
+        }else{
+            return asset('/assets/client/img/no-cover.png');
+        }
+    }
+
+    public function ensureBCover() {
+        if (File::exists($this->coverBImagePath()) === true && File::isFile($this->coverBImagePath()) === true) {
+            return $this->coverBImage();
         }else{
             return asset('/assets/client/img/no-cover.png');
         }
@@ -66,8 +74,12 @@ class Topic extends Eloquent {
         return asset('/attachments/answer_image/b/'.$this->answer_b_image);
     }
 
-    public function coverImagePath() {
-        return public_path().'/attachments/cover/'.$this->cover;
+    public function coverAImage() {
+        return asset('/attachments/cover_image/a/'.$this->answer_a_image);
+    }
+
+    public function coverBImage() {
+        return asset('/attachments/cover_image/b/'.$this->answer_b_image);
     }
 
     public function answerAImagePath() {
@@ -76,6 +88,14 @@ class Topic extends Eloquent {
 
     public function answerBImagePath() {
         return public_path().'/attachments/answer_image/b/'.$this->answer_b_image;
+    }
+
+    public function coverAImagePath() {
+        return public_path().'/attachments/cover_image/a/'.$this->answer_a_image;
+    }
+
+    public function coverBImagePath() {
+        return public_path().'/attachments/cover_image/b/'.$this->answer_b_image;
     }
 
 }

@@ -8,7 +8,7 @@
 <meta property="og:title" content="{{{ $topic->subject }}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ route('topic.show', ['id' => $topic->id]) }}" />
-<meta property="og:image" content="{{ $topic->coverImage() }}" />
+<meta property="og:image" content="{{ $topic->ensureACover() }}" />
 <meta property="og:description" content="{{ $topic->description }}" />
 <meta property="og:site_name" content="Dummy" />
 @stop

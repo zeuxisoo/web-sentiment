@@ -7,7 +7,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">{{ trans('views.topic.edit_topic') }}</div>
                             <div class="panel-body">
@@ -58,26 +58,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                {{ trans('views.topic.cover') }}
-                                &nbsp;
-                                <a href="#" class="btn btn-xs btn-danger pull-right"><i class="fa fa-trash"></i></a>
-                            </div>
-                            <div class="panel-body text-center">
-                                <input type="file" class="form-control file-input" id="cover" name="cover" placeholder="{{ trans('views.topic.cover') }}" value="{{ Input::old('cover') }}">
-                                <br>
-                                @if (File::exists($topic->coverImagePath()) === true && File::isFile($topic->coverImagePath()) === true )
-                                    <a href="#" class="thumbnail">
-                                        <img src="{{{ $topic->coverImage() }}}" class="img-rounded">
-                                    </a>
-                                @else
-                                    <div class="alert alert-info">{{ trans('views.topic.no_images') }}</div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -86,7 +66,7 @@
                             <div class="panel-heading">
                                 {{ trans('views.topic.answer_a_image') }}
                                 &nbsp;
-                                <a href="#" class="btn btn-xs btn-danger pull-right"><i class="fa fa-trash"></i></a>
+                                {{-- <a href="#" class="btn btn-xs btn-danger pull-right"><i class="fa fa-trash"></i></a> --}}
                             </div>
                             <div class="panel-body">
                                 <input type="file" class="form-control file-input" id="answer_a_image" name="answer_a_image" placeholder="{{ trans('views.topic.answer_a_image') }}" value="{{ Input::old('answer_a_image') }}">
@@ -106,7 +86,7 @@
                             <div class="panel-heading">
                                 {{ trans('views.topic.answer_b_image') }}
                                 &nbsp;
-                                <a href="#" class="btn btn-xs btn-danger pull-right"><i class="fa fa-trash"></i></a>
+                                {{-- <a href="#" class="btn btn-xs btn-danger pull-right"><i class="fa fa-trash"></i></a> --}}
                             </div>
                             <div class="panel-body">
                                 <input type="file" class="form-control file-input" id="answer_b_image" name="answer_b_image" placeholder="{{ trans('views.topic.answer_b_image') }}" value="{{ Input::old('answer_b_image') }}">

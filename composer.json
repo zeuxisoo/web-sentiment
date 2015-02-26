@@ -12,7 +12,8 @@
 		"rtconner/laravel-tagging": "0.4.*",
 		"artdarek/oauth-4-laravel": "~1.0",
 		"rcrowe/turbo": "~0.3",
-		"dingo/api": "dev-master#febeb58b97"
+		"dingo/api": "dev-master#febeb58b97",
+		"doctrine/dbal": "~2.5"
 	},
 	"autoload": {
 		"classmap": [

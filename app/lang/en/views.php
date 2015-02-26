@@ -39,7 +39,6 @@ return [
         'create'            => "Create topic",
         'subject'           => "Subject",
         'category'          => "Category",
-        'cover'             => "Cover",
         'description'       => "Description",
         'answer_a_text'     => "Answer A (Text)",
         'answer_a_image'    => "Answer A (Image)",

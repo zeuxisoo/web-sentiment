@@ -5,6 +5,8 @@ class TopicCategory extends Eloquent {
 
     protected $fillable = ['name', 'code'];
 
+    public $timestamps = false;
+
     public function topics() {
         return $this->hasMany('Topic');
     }

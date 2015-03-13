@@ -11,4 +11,3 @@ database:
 
 migrate:
 	@php artisan migrate
-	@php artisan migrate --package=rtconner/laravel-tagging

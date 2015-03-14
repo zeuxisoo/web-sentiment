@@ -11,3 +11,6 @@ database:
 
 migrate:
 	@php artisan migrate
+
+mysql:
+	mysql.server start

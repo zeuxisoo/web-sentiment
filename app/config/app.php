@@ -130,6 +130,7 @@ return array(
 		'Artdarek\OAuth\OAuthServiceProvider',
 		'Turbo\Provider\Laravel\TurboServiceProvider',
 
+		'Barryvdh\Cors\CorsServiceProvider',
 		'Dingo\Api\Provider\ApiServiceProvider',
 
 		'Barryvdh\Debugbar\ServiceProvider',

@@ -17,6 +17,7 @@ class CreateTopicCategoryTable extends Migration {
 			$table->increments('id');
 			$table->string('name', 80);
 			$table->string('code', 80);
+			$table->timestamps();
 		});
 	}
 

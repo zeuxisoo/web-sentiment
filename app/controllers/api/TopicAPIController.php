@@ -31,7 +31,6 @@ class TopicAPIController extends BaseAPIController {
     public function show($id) {
         try {
             $topic      = Topic::findOrFail($id);
-            $comments   = $topic->comments()->orderBy('created_at', 'asc')->with('user')->get();
             $my_vote    = TopicVote::topicAndUser($topic, Auth::user())->first();
             $vote_count = TopicVote::selectRaw("
                 SUM(answer='A') AS answer_a_count,
@@ -45,22 +44,14 @@ class TopicAPIController extends BaseAPIController {
 
             if (empty($viewed_topic_ids) === true || in_array($topic->id, $viewed_topic_ids) === false) {
                 $topic->increment('view_count');
-
                 array_push($viewed_topic_ids, $topic->id);
-
                 Session::put('viewed_topic_ids', $viewed_topic_ids);
             }
 
             // Is bookmarked
             $is_bookarmked = Bookmark::topicAndUser($topic, Auth::user())->count() > 0;
 
-            // Merge all detail into topic object
-            $topic->comments      = $comments;
-            $topic->my_vote       = $my_vote;
-            $topic->vote_count    = $vote_count;
-            $topic->is_bookarmked = $is_bookarmked;
-
-            return $this->response->item($topic, new SingleObjectTransformer);
+            return $this->response->item($topic, new TopicTransformer($my_vote, $vote_count, $is_bookarmked));
         }catch(ModelNotFoundException $e) {
             throw new ResourceException('Can not found related topic');
         }

@@ -24,7 +24,7 @@ class TopicAPIController extends BaseAPIController {
                     break;
             }
 
-            return $this->response->collection($topics, new TopicsTransformer);
+            return $this->response->paginator($topics, new TopicsTransformer);
         }
     }
 

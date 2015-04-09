@@ -24,7 +24,39 @@ class TopicAPIController extends BaseAPIController {
                     break;
             }
 
-            return $this->response->paginator($topics, new TopicsTransformer);
+            // Make topic ids list
+            $topic_ids = array_map(function($topic) {
+                return $topic->id;
+            }, $topics->getItems());
+
+            // Find votes by topic ids
+            $vote_counts = TopicVote::selectRaw("
+                SUM(answer='A') AS answer_a_count,
+                SUM(answer='B') AS answer_b_count
+            ")->whereIn('topic_id', $topic_ids)->where(function($query) {
+                $query->where('answer', 'A')->orWhere('answer', 'B');
+            })->groupBy('topic_id')->get(['answer_a_count', 'answer_b_count']);
+
+            $temp_vote_counts = [];
+            foreach($vote_counts as $vote_count) {
+                $temp_vote_counts[$vote_count->topic_id] = $vote_count;
+            }
+            $vote_counts = &$temp_vote_counts;
+
+            // Add vote_counts property to topic object
+            foreach($topics as $topic) {
+                if (empty($vote_counts[$topic->id]->answer_a_count) === false) {
+                    $topic->vote_counts = $vote_counts[$topic->id];
+                }else{
+                    $topic->vote_counts = (object) [
+                        'answer_a_count' => 0,
+                        'answer_b_count' => 0,
+                    ];
+                }
+            }
+
+            // Response
+            return $this->response->paginator($topics, new TopicsTransformer($vote_counts));
         }
     }
 

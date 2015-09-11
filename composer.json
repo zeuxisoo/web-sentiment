@@ -14,7 +14,8 @@
 		"rcrowe/turbo": "~0.3",
 		"dingo/api": "0.8.*",
 		"doctrine/dbal": "~2.5",
-		"barryvdh/laravel-cors": "0.2.x"
+		"barryvdh/laravel-cors": "0.2.x",
+		"guzzlehttp/guzzle": "~4.0"
 	},
 	"autoload": {
 		"classmap": [

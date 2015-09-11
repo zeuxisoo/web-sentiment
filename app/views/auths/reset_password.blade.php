@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('views.auth.reset_password') }}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('auth.reset_password') }}" accept-charset="UTF-8">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('auth.do_reset_password') }}" accept-charset="UTF-8">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="token" value="{{ $token }}">
                         <div class="form-group">
